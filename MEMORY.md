@@ -49,10 +49,10 @@ A **multi-agent AI talent scouting system** that:
 - **Automation Stack**: Google Forms/Sheets/Apps Script, n8n
 
 ## 🗓️ Build Sequence
-- [~] **Phase 1**: Scout + Analyst — GitHub Search → Score (with UI) *(in progress — agents + UI built, live-key wiring pending)*
-- [ ] **Phase 2**: Connector agent — cross-domain mapping
-- [ ] **Phase 3**: Briefer + full UI (mission briefing format, premium feel)
-- [ ] **Phase 4**: Learner + export (PDF, email digest, feedback loop)
+- [x] **Phase 1**: Scout + Analyst — GitHub Search → Score (with UI) *(in progress — agents + UI built, live-key wiring pending)*
+- [x] **Phase 2**: Connector agent — cross-domain mapping
+- [x] **Phase 3**: Briefer + full UI (mission briefing format, premium feel)
+- [x] **Phase 4**: Learner + export (PDF, email digest, feedback loop)
 
 ## 📌 Last Session Summary
 - Phase 1 built: Scout agent (parallel GitHub Search, dedupe, README enrichment), Analyst agent (4-dimension scoring with reasoning + confidence)
@@ -71,3 +71,4 @@ A **multi-agent AI talent scouting system** that:
 | 2026-05-30 | Phase 1 built: Scout + Analyst agents, github/claude API helpers, query recipes, React UI shell with live pipeline visualization. |
 | 2026-05-30 | UI redesigned to Editorial Discovery (light/dark, Spectral + IBM Plex Mono). Finance-terminal aesthetic dropped. Tokens updated. |
 | 2026-05-30 | Phase 3 built: Briefer agent (urgency × opportunity ranking, executive brief format). Morning Brief panel as hero view with view toggle. Four-stage pipeline viz. |
+| 2026-05-30 | Phase 4 complete: Learner agent (feedback→weights), export utils (clipboard/txt/md), full v1 UI (feedback buttons, learner panel, export panel). All 5 agents wired. |

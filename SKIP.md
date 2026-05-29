@@ -64,3 +64,10 @@
 - Add items here anytime you notice something to improve
 - Flag priority items with 🔥 prefix
 - This file is your running product backlog for code quality
+
+### 🆕 Added 2026-05-30 (post Phase 4 — v1 complete)
+- [ ] `V1-001` — Wire live GitHub + Anthropic API keys in Claude Code, test full pipeline end-to-end on real repos
+- [ ] `V1-002` — Swap MODEL in api/claude.js to Opus 4.8 model string and benchmark vs Sonnet on scoring quality
+- [ ] `V1-003` — Add GitHub Actions workflow (scout.yml) to run the pipeline on a schedule and push briefing to a Gist
+- [ ] `V1-004` — Add a Streamlit wrapper around the agents for a standalone daily-brief CLI tool
+- [ ] `V1-005` — Test Learner weight persistence across multiple sessions — verify localStorage survives page reload
