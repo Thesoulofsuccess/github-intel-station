@@ -70,3 +70,4 @@ A **multi-agent AI talent scouting system** that:
 | 2026-05-30 | Project reset. Architecture decided. Foundation docs created. |
 | 2026-05-30 | Phase 1 built: Scout + Analyst agents, github/claude API helpers, query recipes, React UI shell with live pipeline visualization. |
 | 2026-05-30 | UI redesigned to Editorial Discovery (light/dark, Spectral + IBM Plex Mono). Finance-terminal aesthetic dropped. Tokens updated. |
+| 2026-05-30 | Phase 3 built: Briefer agent (urgency × opportunity ranking, executive brief format). Morning Brief panel as hero view with view toggle. Four-stage pipeline viz. |
