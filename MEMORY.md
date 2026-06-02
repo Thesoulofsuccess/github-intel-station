@@ -70,5 +70,10 @@ A **multi-agent AI talent scouting system** that:
 | 2026-05-30 | Project reset. Architecture decided. Foundation docs created. |
 | 2026-05-30 | Phase 1 built: Scout + Analyst agents, github/claude API helpers, query recipes, React UI shell with live pipeline visualization. |
 | 2026-05-30 | UI redesigned to Editorial Discovery (light/dark, Spectral + IBM Plex Mono). Finance-terminal aesthetic dropped. Tokens updated. |
+| 2026-06-02 | Phase 5: GitHub Actions scheduler — weekly cron + manual dispatch + 2 secrets configured. |
+| 2026-06-02 | Phase 6: Vite production build + GitHub Pages deploy — live at thesoulofsuccess.github.io/github-intel-station |
+| 2026-06-02 | Phase 7: Gmail email digest — HTML brief to zikash@gmail.com + vikash.rajan@redpincompany.com via SMTP App Password |
+| 2026-06-02 | Phase 8: Expanded to 49 query recipes across 4 deep domains (Payments+blockchain, Markets+global, AI+MCP, Growth+YouTube Shorts). Connector context expanded. |
+| 2026-06-02 | README rewritten — comprehensive project guide with phases, tech stack, setup, where-to-find-brief. |
 | 2026-05-30 | Phase 3 built: Briefer agent (urgency × opportunity ranking, executive brief format). Morning Brief panel as hero view with view toggle. Four-stage pipeline viz. |
 | 2026-05-30 | Phase 4 complete: Learner agent (feedback→weights), export utils (clipboard/txt/md), full v1 UI (feedback buttons, learner panel, export panel). All 5 agents wired. |

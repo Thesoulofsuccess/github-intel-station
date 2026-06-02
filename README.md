@@ -2,9 +2,12 @@
 
 > *"What's worth your attention today."*
 
-A fully autonomous, 5-agent AI system that scouts all of GitHub every Monday morning, scores the best repos across your domains, maps them to your specific workflows, and delivers one ranked executive brief — before your standup.
+A fully autonomous, 5-agent AI system that scouts all of GitHub every Monday morning across 4 deep domains, scores the best repos with reasoning, maps each one to your specific workflows, and emails you one ranked executive brief — before your standup.
 
 Built by **Vikash Rajan** · FinTech COO, Redpin Payments, Mumbai.
+Powered by **Claude Opus 4** · Deployed on **GitHub Actions** + **GitHub Pages**.
+
+🌐 **Live app:** [thesoulofsuccess.github.io/github-intel-station](https://thesoulofsuccess.github.io/github-intel-station)
 
 ---
 
@@ -15,15 +18,14 @@ Every Monday 6:30 AM IST
         ↓
 ┌─────────────────────────────────────────────┐
 │  Agent 1 — Scout                            │
-│  Searches GitHub across 4 domains in        │
-│  parallel. Finds the best repos from the    │
-│  last 30 days. Not just what you follow —   │
-│  all of GitHub.                             │
+│  49 query recipes across 4 domains, run     │
+│  in parallel. Scans last 30 days of GitHub  │
+│  activity. Not what you follow — all of it. │
 └──────────────────┬──────────────────────────┘
                    ↓
 ┌─────────────────────────────────────────────┐
 │  Agent 2 — Analyst                          │
-│  Scores each repo 0-100 across 4 dimensions │
+│  Scores every repo 0-100 across 4 domains   │
 │  with reasoning + confidence. Powered by    │
 │  Claude Opus 4.                             │
 └──────────────────┬──────────────────────────┘
@@ -31,15 +33,15 @@ Every Monday 6:30 AM IST
 ┌─────────────────────────────────────────────┐
 │  Agent 3 — Connector                        │
 │  Maps each repo to your 4 active workflows: │
-│  Redpin · NIFTY · Reel IQ · Automation.     │
-│  The "so what for me" layer.                │
+│  Redpin · NIFTY+Markets · Reel IQ ·         │
+│  Automation. The "so what for me" layer.    │
 └──────────────────┬──────────────────────────┘
                    ↓
 ┌─────────────────────────────────────────────┐
 │  Agent 4 — Briefer                          │
 │  Chief of staff. Ranks by urgency ×         │
-│  opportunity. Writes one decisive executive │
-│  brief with specific actions.               │
+│  opportunity. Writes one decisive brief     │
+│  with specific actions you can do this week.│
 └──────────────────┬──────────────────────────┘
                    ↓
 ┌─────────────────────────────────────────────┐
@@ -49,69 +51,61 @@ Every Monday 6:30 AM IST
 │  brief smarter.                             │
 └──────────────────┬──────────────────────────┘
                    ↓
-         public/brief.json
-         (committed to repo)
-                   ↓
-         React UI reads it
-         Brief is waiting for you
+       📧 Email digest to your inbox
+       🌐 Full brief live on the web app
+       📁 brief.json committed to repo
 ```
 
 ---
 
-## The 4 Scoring Domains
+## The 4 Domains (49 query recipes total)
 
-| Domain | Color | What It Covers |
-|--------|-------|---------------|
-| FinTech / COO | 🩵 Teal | ACH/NACHA, payments, banking integrations, compliance, fraud |
-| Dev & AI | 💜 Violet | LLM agents, developer tooling, infrastructure, automation |
-| Trading | 🟡 Amber | NIFTY options, CE/PE, quant, algorithmic trading |
-| Growth | 🌸 Rose | Influencer analytics, content intelligence, audience tools |
+### 💳 Payments & FinTech
+ACH/NACHA, Open Banking, ISO 20022, blockchain payments, stablecoins, CBDCs, cross-border rails, RegTech, embedded finance, DeFi infrastructure.
+
+### 📈 Markets & Investing
+NIFTY options (CE/PE, 5-min candle), global equities, portfolio rebalancers, quant strategies, financial advisor tools, backtesting frameworks, risk management, crypto trading, factor investing, earnings analysis.
+
+### 🤖 AI & Efficiency
+Claude plugins, MCP servers, multi-agent orchestration, AI for financial services, workflow automation, n8n, RAG systems, prompt engineering, developer productivity.
+
+### 🎬 Growth & Creator
+YouTube Shorts, TikTok analytics, Instagram Reels, creator intelligence, content repurposing, AI video tools, audience analytics, newsletter growth, SEO tools — everything that powers Reel IQ.
 
 ---
 
 ## Your 4 Active Workflows
 
-Every repo is mapped to at least one of these:
+Every repo is mapped by the Connector agent to at least one of these:
 
-- **Redpin** — ACH/NACHA infrastructure, JP Morgan Chase + Cross River Bank integrations, KYC, fraud scoring, reconciliation
-- **NIFTY** — CE/PE options framework, first 5-minute candle analysis, trade journaling
-- **Reel IQ** — Python/Streamlit content intelligence SaaS for influencers, Claude API
-- **Automation** — n8n, Google Apps Script, Google Forms/Sheets, reducing manual ops
+| Workflow | What It Covers |
+|----------|---------------|
+| **Redpin** | ACH/NACHA infrastructure, JP Morgan Chase + Cross River Bank integrations, KYC/AML, fraud scoring, reconciliation, payment ops |
+| **NIFTY + Markets** | CE/PE options framework, first 5-min candle analysis, global equities, portfolio rebalancing, financial advisor tools |
+| **Reel IQ** | Python/Streamlit content intelligence SaaS, YouTube Shorts + TikTok + Reels analytics, creator engagement scoring |
+| **Automation** | n8n, Google Apps Script, Forms/Sheets, ops efficiency tools |
 
 ---
 
-## Where to Find Your Brief
+## Where You Find Your Brief
 
-### Option 1 — GitHub Actions (automatic every Monday)
-```
-github.com/Thesoulofsuccess/github-intel-station
-→ Actions tab
-→ Latest "Weekly Scout" run
-→ See logs from all 5 agents live
-```
+### 📧 Your inbox (automatic every Monday)
+Beautiful HTML email digest lands in:
+- `zikash@gmail.com`
+- `vikash.rajan@redpincompany.com`
 
-### Option 2 — brief.json (raw output)
-```
-github.com/Thesoulofsuccess/github-intel-station
-→ public/brief.json
-→ Updated every Monday automatically
-```
+Subject: `◆ Intelligence Brief · YYYY-MM-DD · [SIGNAL] · N picks`
 
-### Option 3 — React UI (coming: GitHub Pages deploy)
-```
-thesoulofsuccess.github.io/github-intel-station
-→ Morning Brief view (default)
-→ Repo Feed with filters
-→ Export to clipboard / markdown
-```
+### 🌐 Live web app
+**[thesoulofsuccess.github.io/github-intel-station](https://thesoulofsuccess.github.io/github-intel-station)**
 
-### Option 4 — Run manually anytime
-```
-github.com/Thesoulofsuccess/github-intel-station
-→ Actions tab
-→ "Intelligence Station — Weekly Scout"
-→ "Run workflow" button → Run
-```
+Mobile + desktop. Light + dark mode. Read the brief, browse the repo feed, rate picks to teach the Learner.
+
+### 📁 Raw JSON
+[`public/brief.json`](public/brief.json) — auto-committed every Monday.
+
+### 🔘 Manual dispatch
+[GitHub Actions tab](https://github.com/Thesoulofsuccess/github-intel-station/actions) → "Intelligence Station — Weekly Scout" → Run workflow.
 
 ---
 
@@ -121,32 +115,39 @@ github.com/Thesoulofsuccess/github-intel-station
 github-intel-station/
 │
 ├── .github/workflows/
-│   └── scout.yml              ← GitHub Actions scheduler (Mon 6:30 AM IST)
+│   └── scout.yml              ← Weekly scheduler (Mon 6:30 AM IST)
 │
 ├── scripts/
-│   └── run_pipeline.py        ← Full 5-agent pipeline (pure Python, no deps)
+│   ├── run_pipeline.py        ← Full 5-agent pipeline
+│   └── send_brief.py          ← HTML email digest sender
 │
 ├── src/
-│   ├── App.jsx                ← React UI (Editorial Discovery design)
+│   ├── App.jsx                ← React UI (Editorial Discovery)
+│   ├── main.jsx               ← React entry point
 │   ├── agents/
-│   │   ├── scout.js           ← Agent 1: GitHub Search
+│   │   ├── scout.js           ← Agent 1: GitHub Search (JS reference)
 │   │   ├── analyst.js         ← Agent 2: Scoring
 │   │   ├── connector.js       ← Agent 3: Workflow mapping
 │   │   ├── briefer.js         ← Agent 4: Executive brief
 │   │   └── learner.js         ← Agent 5: Feedback weights
 │   ├── api/
-│   │   ├── github.js          ← GitHub API helper + cache
+│   │   ├── github.js          ← GitHub API helper + 6hr cache
 │   │   └── claude.js          ← Anthropic API helper
 │   ├── queries/
-│   │   └── recipes.js         ← GitHub Search query recipes
+│   │   └── recipes.js         ← 49 GitHub Search query recipes
 │   └── utils/
 │       └── export.js          ← Clipboard / markdown / txt export
 │
 ├── public/
-│   ├── brief.json             ← Latest brief (auto-updated every Monday)
-│   └── weights.json           ← Learner domain weights
+│   ├── brief.json             ← Latest brief (auto-updated weekly)
+│   ├── weights.json           ← Learner domain weights
+│   └── favicon.svg
 │
-├── MEMORY.md                  ← Session memory for Claude Code
+├── package.json               ← Vite + React build config
+├── vite.config.js             ← Vite config (GitHub Pages base)
+├── index.html                 ← Vite HTML entry
+│
+├── MEMORY.md                  ← Session memory (Claude Code)
 ├── INSTRUCTIONS.md            ← Claude Code rules
 ├── SKIP.md                    ← Self-improving backlog
 ├── ARCHITECTURE.md            ← System design + agent contracts
@@ -157,7 +158,22 @@ github-intel-station/
 
 ---
 
-## Setup (run once on your machine)
+## Tech Stack
+
+| Layer | Tool |
+|-------|------|
+| **AI brain** | Claude Opus 4 (`claude-opus-4-5`) |
+| **Repo discovery** | GitHub Search REST API |
+| **Pipeline** | Python 3.11 (pure stdlib + PyNaCl for secret encryption) |
+| **Scheduler** | GitHub Actions (cron + manual dispatch) |
+| **Email** | Gmail SMTP via App Password |
+| **Frontend** | React 18 + Vite |
+| **Hosting** | GitHub Pages |
+| **Persistence** | localStorage (Learner weights) + repo-committed `brief.json` |
+
+---
+
+## Setup (run on your machine)
 
 ### 1. Clone
 ```bash
@@ -165,12 +181,12 @@ git clone https://github.com/Thesoulofsuccess/github-intel-station
 cd github-intel-station
 ```
 
-### 2. Create .env
+### 2. Create `.env`
 ```bash
 cp .env.example .env
-# Fill in your keys:
-GITHUB_TOKEN=your_github_classic_token   # needs: repo + workflow scope
-ANTHROPIC_API_KEY=your_anthropic_key
+# Fill in:
+GITHUB_TOKEN=ghp_...          # needs repo + workflow scope
+ANTHROPIC_API_KEY=sk-ant-...
 ```
 
 ### 3. Run pipeline manually
@@ -179,68 +195,100 @@ python3 scripts/run_pipeline.py
 # Brief saved to public/brief.json
 ```
 
-### 4. View the UI
+### 4. Run the UI locally
 ```bash
 npm install
-npm start
-# Opens at localhost:3000
+npm run dev
+# Opens at http://localhost:5173
+```
+
+### 5. Deploy to GitHub Pages
+```bash
+npm run deploy
 ```
 
 ---
 
 ## GitHub Actions Setup (already done ✅)
 
-Two secrets are set in the repo:
+Four secrets are stored in the repo:
 
 | Secret | What it is |
 |--------|-----------|
 | `GH_SCOUT_TOKEN` | GitHub PAT (repo + workflow scope) |
 | `ANTHROPIC_API_KEY` | Anthropic API key for Claude Opus 4 |
+| `GMAIL_USER` | Your Gmail address (sender) |
+| `GMAIL_APP_PASSWORD` | Gmail App Password (16-char) |
 
-Schedule: **Every Monday at 1:00 AM UTC (6:30 AM IST)**
+**Schedule:** Every Monday at 1:00 AM UTC (6:30 AM IST)
 
-To change the schedule, edit `.github/workflows/scout.yml` → `cron` value.
+To change the cron, edit `.github/workflows/scout.yml`.
 
 ---
 
 ## Session Continuity (Claude Code)
 
-This project uses a 5-file protocol for Claude Code sessions:
+This project uses a 6-file protocol for seamless Claude Code sessions:
 
 | File | Purpose |
 |------|---------|
-| `CLAUDE.md` | 60-second fast-boot |
+| `CLAUDE.md` | 60-second fast-boot at session start |
 | `MEMORY.md` | Session log + phase tracker |
-| `INSTRUCTIONS.md` | Rules for every session |
-| `SKIP.md` | Self-improving backlog |
+| `INSTRUCTIONS.md` | Rules every Claude Code session must follow |
+| `SKIP.md` | Self-improving backlog — ≥2 items addressed per session |
 | `ARCHITECTURE.md` | Agent contracts + design tokens |
+| `SKILL.md` | Auto-trigger skill metadata |
 
-Every Claude Code session starts by reading these. Every session ends by updating them.
-
----
-
-## Design
-
-**"Editorial Discovery"** — not a finance terminal. Typography-led, calm, adaptive.
-
-- **Display font**: Spectral (serif) — editorial voice
-- **Data font**: IBM Plex Mono — scores, metadata, agent status
-- **Themes**: Light + Dark toggle
-- **Motion**: Tasteful — staggered reveals, pulsing agent dots, hover lifts
+Every Claude Code session reads these first. Every session ends by updating them.
 
 ---
 
-## Roadmap
+## Design — "Editorial Discovery"
 
-- [x] Phase 1 — Scout + Analyst agents + React UI shell
-- [x] Phase 2 — Connector agent (workflow mapping)
-- [x] Phase 3 — Briefer + Morning Brief hero view
-- [x] Phase 4 — Learner + Export (clipboard, markdown, txt)
-- [x] Phase 5 — GitHub Actions scheduler + weekly dispatch
-- [ ] Phase 6 — GitHub Pages deploy (public URL)
-- [ ] Phase 7 — Email digest (brief to inbox every Monday)
-- [ ] Phase 8 — Streamlit companion app
+Typography-led, calm, adaptive. Not a finance terminal — the Scout covers all of GitHub.
+
+- **Display font:** Spectral (serif) — editorial voice
+- **Data font:** IBM Plex Mono — scores, metadata, agent status
+- **Themes:** Light + Dark toggle
+- **Motion:** Tasteful — staggered card reveals, pulsing agent dots, hover lifts
+- **Colours:** Teal (Payments), Amber (Markets), Violet (AI), Rose (Growth)
+
+---
+
+## Phases Shipped
+
+- [x] **Phase 1** — Scout + Analyst agents + React UI shell
+- [x] **Phase 2** — Connector agent (workflow mapping)
+- [x] **Phase 3** — Briefer + Morning Brief hero view
+- [x] **Phase 4** — Learner + Export (clipboard, markdown, txt)
+- [x] **Phase 5** — GitHub Actions scheduler + weekly dispatch
+- [x] **Phase 6** — Production Vite build + GitHub Pages deploy
+- [x] **Phase 7** — Gmail email digest to both inboxes
+- [x] **Phase 8** — Expanded 4-domain coverage (49 query recipes)
+
+### Roadmap
+- [ ] Phase 9 — Streamlit companion CLI
+- [ ] Phase 10 — Notion / Slack webhook integrations
+- [ ] Phase 11 — Skip-list training (auto-filter junk repos)
+- [ ] Phase 12 — Per-domain confidence calibration
+
+---
+
+## The Story Behind It
+
+I run payments operations at Redpin. I trade NIFTY options. I'm building Reel IQ on the side. I automate everything I can.
+
+Four domains. One brain. Not enough hours in the day.
+
+Most AI tools give you more information. I needed something that tells me what to act on. So I built the Intelligence Station — the AI equivalent of a chief of staff who actually knows my business.
+
+It runs every Monday before I'm awake. By 6:30 AM, my brief is waiting.
+
+That's the compounding edge.
 
 ---
 
 *Progress > perfection. Behavior over ambition.*
+
+🔗 [github.com/Thesoulofsuccess/github-intel-station](https://github.com/Thesoulofsuccess/github-intel-station)
+🌐 [thesoulofsuccess.github.io/github-intel-station](https://thesoulofsuccess.github.io/github-intel-station)
