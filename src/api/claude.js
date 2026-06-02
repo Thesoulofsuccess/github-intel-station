@@ -4,7 +4,7 @@
 // When running this project via Claude Code on your own ANTHROPIC_API_KEY,
 // change MODEL below to your Opus 4.8 model string. The orchestration logic
 // is fully model-agnostic — only this constant changes.
-const MODEL = 'claude-sonnet-4-20250514';
+const MODEL = 'claude-opus-4-5';
 
 /** Call Claude with a system prompt + user content. Returns raw text. */
 export async function callClaude(systemPrompt, userContent, maxTokens = 1000) {
