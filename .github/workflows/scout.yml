@@ -1,0 +1,40 @@
+name: Intelligence Station — Weekly Scout
+
+on:
+  # Manual trigger — run anytime from GitHub Actions tab
+  workflow_dispatch:
+
+  # Every Monday at 6:30 AM IST (1:00 AM UTC)
+  schedule:
+    - cron: '0 1 * * 1'
+
+jobs:
+  scout:
+    name: Run Full Pipeline
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to commit brief.json back to repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Intelligence Station pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_SCOUT_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MAX_REPOS_PER_DOMAIN: '5'
+        run: python scripts/run_pipeline.py
+
+      - name: Commit brief.json to repo
+        run: |
+          git config user.name  "Intelligence Station Bot"
+          git config user.email "bot@github-intel-station"
+          git add public/brief.json
+          git diff --staged --quiet || git commit -m "📋 Weekly brief — $(date +'%Y-%m-%d')"
+          git push
