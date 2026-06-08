@@ -1,0 +1,65 @@
+name: Intelligence Station — Weekly Scout
+
+on:
+  workflow_dispatch:      # Manual trigger anytime
+  schedule:
+    - cron: '0 1 * * 1'  # Every Monday 6:30 AM IST (1:00 AM UTC)
+
+jobs:
+  scout:
+    name: Scout → Analyse → Connect → Brief → Email → Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # need full history for gh-pages deploy
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Intelligence Station pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_SCOUT_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MAX_REPOS_PER_DOMAIN: '5'
+        run: python scripts/run_pipeline.py
+
+      - name: Commit brief.json to main
+        run: |
+          git config user.name  "Intelligence Station Bot"
+          git config user.email "bot@github-intel-station"
+          git add public/brief.json
+          git diff --staged --quiet || git commit -m "📋 Weekly brief — $(date +'%Y-%m-%d')"
+          git push
+
+      - name: Send email brief
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python scripts/send_brief.py
+
+      - name: Build React app for GitHub Pages
+        run: |
+          npm install
+          npm run build
+          cp public/brief.json dist/brief.json
+          cp public/weights.json dist/weights.json
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_SCOUT_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          commit_message: "🌐 Deploy weekly brief — $(date +'%Y-%m-%d')"

@@ -1,0 +1,2127 @@
+{
+  "generated_at": "2026-06-08T05:29:41.152443",
+  "briefing_date": "2026-06-08",
+  "signal_quality": "strong",
+  "executive_summary": "Heavy Markets week with 8 high-urgency quant trading repos surfacing\u2014your NIFTY options backtesting infrastructure could leapfrog this week. Hyperswitch stands out in Payments as a serious multi-rail orchestration alternative for Redpin. No direct AI/Efficiency or Creator picks this cycle, but VeighNa and OpenBB show cross-domain patterns applicable to payment analytics. Signal is strong but concentrated; prioritize the 2-3 tools that solve your immediate backtesting bottleneck.",
+  "top_picks": [
+    {
+      "rank": 1,
+      "repo_id": "QuantConnect/Lean",
+      "headline": "Production-grade NIFTY options backtester, battle-tested",
+      "why_now": "Your first-5-minute candle CE/PE strategy needs historical validation before scaling capital; Lean's options module handles exactly this with institutional-grade accuracy.",
+      "action": "Pull Lean's options module this week, load 6 months of NIFTY options data, run your candle strategy against it\u2014target 100 backtest runs by Friday.",
+      "urgency": "high",
+      "primary_workflow": "nifty_markets"
+    },
+    {
+      "rank": 2,
+      "repo_id": "juspay/hyperswitch",
+      "headline": "Cut Redpin's single-rail risk with orchestration layer",
+      "why_now": "If your primary processor goes down, you're dead; Hyperswitch lets you failover across Razorpay/PayU/Stripe in milliseconds without rewriting integration code.",
+      "action": "Spin up Hyperswitch sandbox, connect 2 test processors, simulate a failover scenario\u2014document latency delta vs current setup.",
+      "urgency": "high",
+      "primary_workflow": "redpin"
+    },
+    {
+      "rank": 3,
+      "repo_id": "questdb/questdb",
+      "headline": "Microsecond tick storage for options replay",
+      "why_now": "Your backtests are only as good as your data granularity; QuestDB handles millions of ticks without choking, enabling true first-candle reconstruction.",
+      "action": "Deploy QuestDB locally, ingest 1 week of NIFTY options tick data from your broker feed, verify query latency under 10ms for candle aggregations.",
+      "urgency": "high",
+      "primary_workflow": "nifty_markets"
+    },
+    {
+      "rank": 4,
+      "repo_id": "OpenBB-finance/OpenBB",
+      "headline": "Free Greeks and options chains, ditch paid APIs",
+      "why_now": "You're likely paying for options data that OpenBB aggregates for free; the derivatives module calculates Greeks on-the-fly for position sizing.",
+      "action": "Install OpenBB, pull NIFTY options chain for current expiry, compare Greeks output against your broker's data\u2014validate accuracy before switching.",
+      "urgency": "high",
+      "primary_workflow": "nifty_markets"
+    },
+    {
+      "rank": 5,
+      "repo_id": "nautechsystems/nautilus_trader",
+      "headline": "Rust-speed backtesting if Lean feels slow",
+      "why_now": "If your backtest runs are taking hours, NautilusTrader's Rust core can cut that to minutes\u2014worth evaluating as Lean alternative.",
+      "action": "Bookmark for next week; only pursue if Lean backtest performance becomes a bottleneck after initial runs.",
+      "urgency": "medium",
+      "primary_workflow": "nifty_markets"
+    }
+  ],
+  "skip_list": [
+    {
+      "repo_id": "vnpy/vnpy",
+      "reason": "China-focused, CTP gateway dependencies make NIFTY integration unnecessarily complex vs Lean/Nautilus"
+    },
+    {
+      "repo_id": "wilsonfreitas/awesome-quant",
+      "reason": "Curated list, not actionable tool\u2014you already have the specific repos you need from this batch"
+    },
+    {
+      "repo_id": "HKUDS/Vibe-Trading",
+      "reason": "Multi-agent complexity overkill for your single-strategy backtest needs; revisit when scaling to multiple concurrent strategies"
+    }
+  ],
+  "total_scanned": 25,
+  "domains_covered": [
+    "payments",
+    "markets",
+    "ai_efficiency",
+    "growth"
+  ],
+  "domain_labels": {
+    "payments": "Payments & FinTech",
+    "markets": "Markets & Investing",
+    "ai_efficiency": "AI & Efficiency",
+    "growth": "Growth & Creator"
+  },
+  "weights_used": {
+    "payments": 1.0,
+    "markets": 1.0,
+    "ai_efficiency": 1.0,
+    "growth": 1.0
+  },
+  "repos": [
+    {
+      "id": "Fincept-Corporation/FinceptTerminal",
+      "name": "FinceptTerminal",
+      "owner": "Fincept-Corporation",
+      "description": "FinceptTerminal is a modern finance application offering advanced market analytics, investment research, and economic data tools, designed for interactive exploration and data-driven decision-making in a user-friendly environment.",
+      "stars": 25929,
+      "forks": 3634,
+      "language": "C++",
+      "last_pushed": "2026-06-05",
+      "topics": [
+        "ai-agents",
+        "algorithmic-trading",
+        "bloomberg-terminal",
+        "cpp",
+        "finance",
+        "financial-markets",
+        "fintech",
+        "good-first-issue",
+        "investment",
+        "investment-research",
+        "machine-learning",
+        "opensource",
+        "python",
+        "qt",
+        "quantitative-finance",
+        "stock-market",
+        "trading"
+      ],
+      "url": "https://github.com/Fincept-Corporation/FinceptTerminal",
+      "found_via": [
+        "payments",
+        "markets"
+      ],
+      "readme_excerpt": "# Fincept Terminal\n\n<div align=\"center\">\n\n[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-C06524)](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/LICENSE)\n[![C++20](https://img.shields.io/badge/C%2B%2B-20-00599C?logo=cplusplus)](https://isocpp.org/)\n[![Qt6](https://img.shields.io/badge/Qt-6-41CD52?logo=qt&logoColor=white)](https://www.qt.io/)\n[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)\n[",
+      "analysis": {
+        "repo_id": "Fincept-Corporation/FinceptTerminal",
+        "scores": {
+          "payments": {
+            "score": 15,
+            "reasoning": "Finance terminal focused on market analytics and investment research with no apparent payment rails, open banking, or transaction processing capabilities.",
+            "confidence": 70
+          },
+          "markets": {
+            "score": 92,
+            "reasoning": "Directly aligned with financial markets analysis, offering Bloomberg-terminal-style features for algorithmic trading, quantitative finance, stock market research, and investment decision-making.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 45,
+            "reasoning": "Includes AI agents and machine learning components for financial analysis, though not specifically targeting workflow automation or Claude/MCP integrations.",
+            "confidence": 65
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No relevance to social media analytics, content creation tools, or audience growth platforms.",
+            "confidence": 90
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "FinceptTerminal is a comprehensive open-source Bloomberg alternative with 25K+ stars, offering algorithmic trading, quantitative finance, and investment research capabilities directly relevant to NIFTY options and global equities strategies. The C++/Qt6 architecture with AI/ML integration presents immediate applicability for portfolio analysis and trading tool development."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Fork FinceptTerminal's algorithmic trading module to build a dedicated NIFTY CE/PE first-5-minute candle scanner with real-time momentum alerts integrated into your options workflow.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Leverage the built-in backtesting framework and quant finance tools to validate your intraday momentum strategies against historical NIFTY data before live deployment.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Use the portfolio analytics and risk modeling components as a foundation for your financial advisor tools, saving months of custom development.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "The AI/ML integration layer could feed trading signals into n8n workflows for automated position sizing or alert routing to your preferred channels.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Study their C++/Qt6 desktop architecture patterns if you ever need to build a high-performance native companion app for Reel IQ's analytics processing.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "AI4Finance-Foundation/FinGPT",
+      "name": "FinGPT",
+      "owner": "AI4Finance-Foundation",
+      "description": "FinGPT: Open-Source Financial Large Language Models!  Revolutionize \ud83d\udd25    We release the trained model on HuggingFace.",
+      "stars": 20431,
+      "forks": 2900,
+      "language": "Jupyter Notebook",
+      "last_pushed": "2026-06-01",
+      "topics": [
+        "chatgpt",
+        "finance",
+        "fingpt",
+        "fintech",
+        "large-language-models",
+        "machine-learning",
+        "nlp",
+        "prompt-engineering",
+        "pytorch",
+        "reinforcement-learning",
+        "robo-advisor",
+        "sentiment-analysis",
+        "technical-analysis"
+      ],
+      "url": "https://github.com/AI4Finance-Foundation/FinGPT",
+      "found_via": [
+        "payments",
+        "markets"
+      ],
+      "readme_excerpt": "<div align=\"center\">\n<img align=\"center\" width=\"30%\" alt=\"image\" src=\"https://github.com/AI4Finance-Foundation/FinGPT/assets/31713746/e0371951-1ce1-488e-aa25-0992dafcc139\">\n</div>\n\n# FinGPT: Open-Source Financial Large Language Models\n[![Downloads](https://static.pepy.tech/badge/fingpt)](https://pepy.tech/project/fingpt)\n[![Downloads](https://static.pepy.tech/badge/fingpt/week)](https://pepy.tech/project/fingpt)\n[![Join Discord](https://img.shields.io/badge/Discord-Join-blue)](https://discord.gg",
+      "analysis": {
+        "repo_id": "AI4Finance-Foundation/FinGPT",
+        "scores": {
+          "payments": {
+            "score": 15,
+            "reasoning": "Financial LLM focuses on market analysis and sentiment rather than payment rails, ACH, or transaction infrastructure.",
+            "confidence": 75
+          },
+          "markets": {
+            "score": 92,
+            "reasoning": "Directly targets financial markets with sentiment analysis, technical analysis, robo-advisor capabilities, and reinforcement learning for trading strategies.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 68,
+            "reasoning": "Open-source LLM with prompt engineering and fine-tuning capabilities could enhance financial workflow automation and AI-driven ops efficiency.",
+            "confidence": 80
+          },
+          "growth": {
+            "score": 8,
+            "reasoning": "No relevance to social media analytics, creator tools, or content intelligence platforms.",
+            "confidence": 90
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "FinGPT is a highly relevant open-source financial LLM with 20K+ stars, offering sentiment analysis, technical analysis, and robo-advisor capabilities that directly align with quantitative trading and portfolio management needs. The trained models on HuggingFace present immediate opportunity for integration into market analysis workflows and automated trading strategies.",
+        "confidence": 90
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Deploy FinGPT's sentiment analysis on NIFTY options to score market mood before first 5-minute candle entries, and use its robo-advisor module to automate portfolio rebalancing decisions.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Fine-tune FinGPT on transaction narratives and merchant data to build an intelligent fraud scoring layer that explains suspicious patterns in natural language for compliance teams.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Adapt FinGPT's prompt engineering patterns and fine-tuning methodology to train a domain-specific content intelligence model for creator analytics, replacing generic Claude calls with a specialized Reel IQ LLM.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Integrate FinGPT's HuggingFace models into n8n workflows to auto-generate daily market briefings or summarize financial news feeds without manual curation.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": true,
+        "cross_domain_leap": "FinGPT's architecture for fine-tuning LLMs on domain-specific financial data provides a replicable blueprint for building a specialized Reel IQ content model trained on creator performance metrics."
+      }
+    },
+    {
+      "id": "AI4Finance-Foundation/FinRL",
+      "name": "FinRL",
+      "owner": "AI4Finance-Foundation",
+      "description": "FinRL\u00ae:  Financial Reinforcement Learning. \ud83d\udd25",
+      "stars": 15377,
+      "forks": 3366,
+      "language": "Jupyter Notebook",
+      "last_pushed": "2026-05-25",
+      "topics": [
+        "algorithmic-trading",
+        "deep-reinforcement-learning",
+        "drl-algorithms",
+        "drl-framework",
+        "drl-trading-agents",
+        "finance",
+        "fintech",
+        "multi-agent-learning",
+        "openai-gym",
+        "pythorch",
+        "stock-markets",
+        "stock-trading",
+        "tensorflow2",
+        "trading-tasks"
+      ],
+      "url": "https://github.com/AI4Finance-Foundation/FinRL",
+      "found_via": [
+        "payments",
+        "markets"
+      ],
+      "readme_excerpt": "<div align=\"center\">\n<img align=\"center\" width=\"30%\" alt=\"image\" src=\"https://github.com/AI4Finance-Foundation/FinGPT/assets/31713746/e0371951-1ce1-488e-aa25-0992dafcc139\">\n</div>\n\n# FinRL: Financial Reinforcement Learning \u2192 FinRL-X\n\n<div align=\"center\">\n<img align=\"center\" src=figs/logo_transparent_background.png width=\"55%\"/>\n</div>\n\n[![Downloads](https://static.pepy.tech/badge/finrl)](https://pepy.tech/project/finrl)\n[![Downloads](https://static.pepy.tech/badge/finrl/week)](https://pepy.tech/",
+      "analysis": {
+        "repo_id": "AI4Finance-Foundation/FinRL",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No direct relevance to payment rails, ACH/NACHA, open banking, or RegTech\u2014purely focused on trading and portfolio optimization.",
+            "confidence": 85
+          },
+          "markets": {
+            "score": 92,
+            "reasoning": "Directly addresses algorithmic trading, DRL-based trading agents, stock market strategies, and portfolio management with backtesting capabilities across multiple asset classes.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 45,
+            "reasoning": "Demonstrates multi-agent learning systems and AI-driven automation for financial workflows, though not specifically targeting Claude plugins or general ops efficiency tools.",
+            "confidence": 70
+          },
+          "growth": {
+            "score": 3,
+            "reasoning": "No relevance to content creation, social media analytics, or creator intelligence tools.",
+            "confidence": 90
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "FinRL is a production-grade deep reinforcement learning framework for algorithmic trading with 15K+ stars, offering DRL trading agents, multi-agent systems, and backtesting infrastructure across equities and crypto markets. Highly relevant for building and validating quant strategies with institutional-quality tooling."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Deploy FinRL's DRL agents to automate NIFTY CE/PE options entry/exit based on first 5-minute candle patterns and intraday momentum signals with built-in backtesting validation.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Use FinRL's multi-agent learning framework to build portfolio rebalancing strategies that adapt to global equity correlations and volatility regimes.",
+            "impact": "high"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Apply FinRL's reinforcement learning architecture patterns to optimize content posting schedules and A/B test engagement strategies as a sequential decision problem.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Integrate FinRL backtesting outputs into n8n workflows for automated strategy performance reports and rebalancing alerts.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": true,
+        "cross_domain_leap": "FinRL's reward-shaping methodology for trading agents could inform Reel IQ's content scoring model\u2014treating engagement optimization as a sequential decision process rather than static prediction."
+      }
+    },
+    {
+      "id": "browser-use/browser-use",
+      "name": "browser-use",
+      "owner": "browser-use",
+      "description": "\ud83c\udf10 Make websites accessible for AI agents. Automate tasks online with ease.",
+      "stars": 97665,
+      "forks": 10917,
+      "language": "Python",
+      "last_pushed": "2026-06-06",
+      "topics": [
+        "ai-agents",
+        "ai-tools",
+        "browser-automation",
+        "browser-use",
+        "llm",
+        "playwright",
+        "python"
+      ],
+      "url": "https://github.com/browser-use/browser-use",
+      "found_via": [
+        "ai_efficiency"
+      ],
+      "readme_excerpt": "<picture>\n  <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/user-attachments/assets/2ccdb752-22fb-41c7-8948-857fc1ad7e24\">\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/user-attachments/assets/774a46d5-27a0-490c-b7d0-e65fcbbfa358\">\n  <img alt=\"Shows a black Browser Use Logo in light color mode and a white one in dark color mode.\" src=\"https://github.com/user-attachments/assets/2ccdb752-22fb-41c7-8948-857fc1ad7e24\"  width=\"full\">\n</picture>\n\n<d",
+      "analysis": {
+        "repo_id": "browser-use/browser-use",
+        "scores": {
+          "payments": {
+            "score": 15,
+            "reasoning": "Browser automation could theoretically interact with payment portals or banking sites, but the repo itself has no direct payments, open banking, or RegTech focus.",
+            "confidence": 70
+          },
+          "markets": {
+            "score": 20,
+            "reasoning": "AI agents could automate trading platform interactions or financial data scraping, but repo lacks specific trading, quant, or portfolio management features.",
+            "confidence": 65
+          },
+          "ai_efficiency": {
+            "score": 92,
+            "reasoning": "Directly enables AI agents to automate browser-based workflows, highly relevant for ops efficiency, multi-agent systems, and developer productivity in automating repetitive online tasks.",
+            "confidence": 95
+          },
+          "growth": {
+            "score": 35,
+            "reasoning": "Could automate social media interactions or content scheduling on platforms like YouTube/Instagram, but not specifically built for creator analytics or content intelligence.",
+            "confidence": 60
+          }
+        },
+        "primary_domain": "ai_efficiency",
+        "urgency": "high",
+        "summary": "Browser-use is a massively popular Python library enabling AI agents to autonomously navigate and automate web tasks via Playwright. With 97K+ stars and direct applicability to workflow automation and multi-agent orchestration, this represents a high-value tool for operational efficiency initiatives."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "redpin",
+            "insight": "Automate KYC document retrieval, bank portal reconciliation checks, and compliance monitoring across partner bank interfaces without manual browser navigation.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Build agents that scrape NIFTY option chain data, track first 5-minute candle signals, or pull global equity metrics from broker dashboards automatically.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Automate competitor content scraping from TikTok/Instagram web interfaces to feed trend detection models when APIs have rate limits or missing endpoints.",
+            "impact": "high"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Replace brittle Google Apps Script web scraping with robust Playwright-based agents that handle dynamic content and authentication flows across any web service.",
+            "impact": "high"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "farion1231/cc-switch",
+      "name": "cc-switch",
+      "owner": "farion1231",
+      "description": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Gemini CLI & Hermes Agent. Only official website: ccswitch.io",
+      "stars": 94470,
+      "forks": 6183,
+      "language": "Rust",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "ai-tools",
+        "claude-code",
+        "codex",
+        "desktop-app",
+        "hermes",
+        "hermes-agent",
+        "mcp",
+        "minimax",
+        "omo",
+        "open-source",
+        "openclaw",
+        "openclaw-ui",
+        "opencode",
+        "provider-management",
+        "rust",
+        "skills",
+        "skills-management",
+        "tauri",
+        "typescript",
+        "wsl-support"
+      ],
+      "url": "https://github.com/farion1231/cc-switch",
+      "found_via": [
+        "ai_efficiency"
+      ],
+      "readme_excerpt": "<div align=\"center\">\n\n# CC Switch\n\n### The All-in-One Manager for Claude Code, Claude Desktop, Codex, Gemini CLI, OpenCode, OpenClaw & Hermes Agent\n\n[![Version](https://img.shields.io/github/v/release/farion1231/cc-switch?color=blue&label=version)](https://github.com/farion1231/cc-switch/releases)\n[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/farion1231/cc-switch/releases)\n[![Built with Tauri](https://img.shields.io/badg",
+      "analysis": {
+        "repo_id": "farion1231/cc-switch",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No relevance to payments infrastructure, ACH/NACHA, open banking, blockchain payments, or financial rails.",
+            "confidence": 85
+          },
+          "markets": {
+            "score": 5,
+            "reasoning": "No relevance to trading, options, equities, quant strategies, or financial market tools.",
+            "confidence": 85
+          },
+          "ai_efficiency": {
+            "score": 88,
+            "reasoning": "Directly relevant as a desktop manager for Claude Code and MCP servers, enabling developer productivity and workflow management across multiple AI coding assistants.",
+            "confidence": 92
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No relevance to social media analytics, content creation, YouTube Shorts, or influencer tools.",
+            "confidence": 85
+          }
+        },
+        "primary_domain": "ai_efficiency",
+        "urgency": "high",
+        "summary": "CC Switch is a highly relevant cross-platform desktop application for managing Claude Code, MCP integrations, and multiple AI coding assistants\u2014directly aligned with your AI efficiency and developer productivity priorities. The 94K+ stars indicate strong community validation, and this tool could streamline your engineering team's AI-assisted development workflows."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "reel_iq",
+            "insight": "CC Switch's MCP integration pattern could help you build desktop-native Reel IQ features, moving beyond Streamlit's browser limitations for power users who want local AI processing.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Managing multiple AI coding assistants from one interface could accelerate your n8n workflow development and Google Apps Script debugging when building Redpin automation tools.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "OpenBB-finance/OpenBB",
+      "name": "OpenBB",
+      "owner": "OpenBB-finance",
+      "description": "Financial data platform for analysts, quants and AI agents.",
+      "stars": 68768,
+      "forks": 6932,
+      "language": "Python",
+      "last_pushed": "2026-06-07",
+      "topics": [
+        "ai",
+        "crypto",
+        "derivatives",
+        "economics",
+        "equity",
+        "finance",
+        "fixed-income",
+        "machine-learning",
+        "openbb",
+        "options",
+        "python",
+        "quantitative-finance",
+        "stocks"
+      ],
+      "url": "https://github.com/OpenBB-finance/OpenBB",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "<br />\n<img src=\"https://github.com/OpenBB-finance/OpenBB/blob/develop/images/odp-light.svg?raw=true#gh-light-mode-only\" alt=\"Open Data Platform by OpenBB logo\" width=\"600\">\n<img src=\"https://github.com/OpenBB-finance/OpenBB/blob/develop/images/odp-dark.svg?raw=true#gh-dark-mode-only\" alt=\"Open Data Platform by OpenBB logo\" width=\"600\">\n<br />\n<br />\n\n[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/openbb_finance.svg?style=social&label=Follow%20%40openbb_finance)](https://x.com/",
+      "analysis": {
+        "repo_id": "OpenBB-finance/OpenBB",
+        "scores": {
+          "payments": {
+            "score": 15,
+            "reasoning": "Minimal payments relevance; primarily a market data platform with no direct ACH, open banking, or cross-border rails functionality.",
+            "confidence": 85
+          },
+          "markets": {
+            "score": 95,
+            "reasoning": "Exceptional fit for NIFTY options trading, quant strategies, and portfolio analysis\u2014explicitly covers derivatives, options, equities, and quantitative finance with AI agent support.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 72,
+            "reasoning": "Designed for AI agents and machine learning workflows, enabling automated financial analysis and developer productivity for data-driven operations.",
+            "confidence": 80
+          },
+          "growth": {
+            "score": 8,
+            "reasoning": "No relevance to creator tools, social media analytics, or content repurposing\u2014purely financial data infrastructure.",
+            "confidence": 90
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "OpenBB is a comprehensive open-source financial data platform purpose-built for quant strategies, options analysis, and AI-driven investment research\u2014directly aligned with your derivatives trading and portfolio management interests. With 68K+ stars and explicit support for AI agents, this represents a high-value infrastructure play for systematic trading workflows."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "OpenBB's derivatives module provides free options chain data and Greeks calculations that could replace expensive terminal subscriptions for your NIFTY CE/PE first-candle analysis and backtesting frameworks.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "The AI agents integration means you can build autonomous systems that pull real-time global equities data, run your quant strategies, and generate rebalancing signals without manual intervention.",
+            "impact": "high"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "OpenBB's economic indicators and market sentiment APIs could power a 'Finance Creator' vertical in Reel IQ\u2014scoring which market topics are trending for finfluencer content timing.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "The economics and fixed-income modules track Fed rates, Treasury yields, and macro indicators that influence ACH volume patterns and payment timing optimization.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": true,
+        "cross_domain_leap": "Beyond trading, OpenBB's standardized financial data architecture could inform how you structure Redpin's payment analytics dashboards\u2014same principle of normalizing messy data sources into unified APIs."
+      }
+    },
+    {
+      "id": "zylon-ai/private-gpt",
+      "name": "private-gpt",
+      "owner": "zylon-ai",
+      "description": "Interact with your documents using the power of GPT, 100% privately, no data leaks",
+      "stars": 57205,
+      "forks": 7605,
+      "language": "Python",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "ai",
+        "ai-tools",
+        "on-premise"
+      ],
+      "url": "https://github.com/zylon-ai/private-gpt",
+      "found_via": [
+        "ai_efficiency"
+      ],
+      "readme_excerpt": "![Banner image](./fern/docs/assets/privategpt_banner.png)\n\n<div align=\"center\">\n\n**PrivateGPT is the open-source API layer that turns local models into production AI applications.**\n\n[![Tests](https://github.com/zylon-ai/private-gpt/actions/workflows/tests.yml/badge.svg)](https://github.com/zylon-ai/private-gpt/actions/workflows/tests.yml?query=branch%3Amain)\n[![Website](https://img.shields.io/website?up_message=check%20it&down_message=down&url=https%3A%2F%2Fdocs.privategpt.dev%2F&label=Document",
+      "analysis": {
+        "repo_id": "zylon-ai/private-gpt",
+        "scores": {
+          "payments": {
+            "score": 15,
+            "reasoning": "No direct payments infrastructure relevance, though private document AI could support RegTech compliance documentation workflows.",
+            "confidence": 35
+          },
+          "markets": {
+            "score": 20,
+            "reasoning": "Could enable private analysis of proprietary trading strategies or portfolio documents, but not purpose-built for financial markets.",
+            "confidence": 40
+          },
+          "ai_efficiency": {
+            "score": 88,
+            "reasoning": "Directly addresses enterprise AI deployment with local LLM infrastructure, enabling private document interactions critical for financial services ops without data leakage concerns.",
+            "confidence": 92
+          },
+          "growth": {
+            "score": 10,
+            "reasoning": "No relevance to content creation, social media analytics, or creator intelligence tools.",
+            "confidence": 85
+          }
+        },
+        "primary_domain": "ai_efficiency",
+        "urgency": "high",
+        "summary": "PrivateGPT delivers production-ready local LLM infrastructure enabling secure document AI without third-party data exposure\u2014directly applicable to sensitive financial operations. With 57K+ stars and enterprise-grade architecture, this represents mature tooling for deploying AI efficiency gains while maintaining data sovereignty requirements."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "redpin",
+            "insight": "Deploy for KYC/AML document analysis and transaction monitoring without sending sensitive financial data to external APIs\u2014critical for compliance-first payment operations.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Process proprietary trading strategies, research PDFs, and portfolio notes locally so alpha-generating insights never leak to third-party LLM providers.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Offer creators a privacy-first content analysis feature where their unreleased scripts and brand deals stay completely local\u2014differentiator against competitors using cloud APIs.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Replace Claude API calls in sensitive n8n workflows with local inference to eliminate per-token costs and API rate limits for high-volume document processing.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "freqtrade/freqtrade",
+      "name": "freqtrade",
+      "owner": "freqtrade",
+      "description": "Free, open source crypto trading bot",
+      "stars": 51228,
+      "forks": 10676,
+      "language": "Python",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "algorithmic-trading",
+        "bitcoin",
+        "cryptocurrencies",
+        "cryptocurrency",
+        "freqtrade",
+        "python",
+        "telegram-bot",
+        "trade",
+        "trading-bot"
+      ],
+      "url": "https://github.com/freqtrade/freqtrade",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "# ![freqtrade](https://raw.githubusercontent.com/freqtrade/freqtrade/develop/docs/assets/freqtrade_poweredby.svg)\n\n[![Freqtrade CI](https://github.com/freqtrade/freqtrade/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/freqtrade/freqtrade/actions/workflows/ci.yml)\n[![DOI](https://joss.theoj.org/papers/10.21105/joss.04864/status.svg)](https://doi.org/10.21105/joss.04864)\n[![codecov](https://codecov.io/gh/freqtrade/freqtrade/branch/develop/graph/badge.svg?token=AD5BG3ATKI)](",
+      "analysis": {
+        "repo_id": "freqtrade/freqtrade",
+        "scores": {
+          "payments": {
+            "score": 15,
+            "reasoning": "Cryptocurrency trading bot has tangential relevance to blockchain payments and stablecoins, but focuses on trading execution rather than payment rails or RegTech.",
+            "confidence": 75
+          },
+          "markets": {
+            "score": 82,
+            "reasoning": "Highly relevant as an algorithmic crypto trading bot with backtesting, strategy development, and risk management features directly applicable to quant trading workflows.",
+            "confidence": 90
+          },
+          "ai_efficiency": {
+            "score": 35,
+            "reasoning": "Provides automation for trading workflows and Telegram bot integration, but lacks AI/ML agent capabilities or broader ops efficiency tooling.",
+            "confidence": 70
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No relevance to content creation, social media analytics, or audience growth tools.",
+            "confidence": 95
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "medium",
+        "summary": "Freqtrade is a mature, highly-starred Python crypto trading bot with robust backtesting and strategy development capabilities relevant to your quant trading interests. While focused on crypto rather than NIFTY options, its algorithmic framework and 51K+ stars signal production-ready infrastructure worth evaluating for trading automation patterns."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Port Freqtrade's backtesting engine architecture (hyperopt, walk-forward analysis) to build a robust NIFTY options backtesting framework using Indian market data feeds.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Study their strategy interface pattern (IStrategy base class) to structure your first-5-minute-candle momentum strategies with proper entry/exit/stoploss hooks.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Leverage their Telegram bot integration code for real-time trade alerts and portfolio notifications in your personal trading workflows.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Their exchange abstraction layer (CCXT integration) demonstrates clean API wrapper patterns useful for multi-bank/multi-rail payment integrations.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": true,
+        "cross_domain_leap": "Freqtrade's exchange reconciliation and trade ledger logic mirrors payment reconciliation challenges\u2014study their balance sync and transaction matching for Redpin's multi-bank settlement workflows."
+      }
+    },
+    {
+      "id": "ccxt/ccxt",
+      "name": "ccxt",
+      "owner": "ccxt",
+      "description": "A cryptocurrency trading API with more than 100 exchanges in JavaScript / TypeScript / Python / C# / PHP / Go / Java ",
+      "stars": 42848,
+      "forks": 8699,
+      "language": "Python",
+      "last_pushed": "2026-06-06",
+      "topics": [
+        "altcoin",
+        "api",
+        "arbitrage",
+        "bitcoin",
+        "bot",
+        "btc",
+        "crypto",
+        "cryptocurrencies",
+        "cryptocurrency",
+        "eth",
+        "ethereum",
+        "exchange",
+        "invest",
+        "library",
+        "market-data",
+        "memecoin",
+        "merchant",
+        "strategy",
+        "trade",
+        "trading"
+      ],
+      "url": "https://github.com/ccxt/ccxt",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "# CCXT \u2013 CryptoCurrency eXchange Trading Library\n\n[![NPM Downloads](https://img.shields.io/npm/dy/ccxt.svg)](https://www.npmjs.com/package/ccxt) [![npm](https://img.shields.io/npm/v/ccxt.svg)](https://npmjs.com/package/ccxt) [![PyPI](https://img.shields.io/pypi/v/ccxt.svg)](https://pypi.python.org/pypi/ccxt) [![NuGet version](https://img.shields.io/nuget/v/ccxt)](https://www.nuget.org/packages/ccxt) [![GoDoc](https://pkg.go.dev/badge/github.com/ccxt/ccxt/go/v4?utm_source=godoc)](https://godoc.or",
+      "analysis": {
+        "repo_id": "ccxt/ccxt",
+        "scores": {
+          "payments": {
+            "score": 35,
+            "reasoning": "Cryptocurrency exchange connectivity has tangential relevance to blockchain payments and cross-border rails, but focuses on trading rather than payment infrastructure or RegTech.",
+            "confidence": 75
+          },
+          "markets": {
+            "score": 85,
+            "reasoning": "Directly enables crypto trading across 100+ exchanges with arbitrage, market data, and strategy execution capabilities\u2014core infrastructure for algorithmic and quantitative crypto trading.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 25,
+            "reasoning": "While useful as a library for building automated trading systems, it lacks direct AI/ML integration or workflow automation features relevant to Claude plugins or multi-agent systems.",
+            "confidence": 70
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No relevance to content creation, social media analytics, or creator intelligence tools.",
+            "confidence": 95
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "CCXT is a dominant multi-language cryptocurrency trading library supporting 100+ exchanges, directly relevant to your crypto trading and quantitative strategy interests. The 42K+ stars and active maintenance signal production-grade infrastructure for algorithmic trading systems.",
+        "confidence": 90
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Unified API across 100+ crypto exchanges enables building cross-exchange arbitrage bots and portfolio rebalancing tools that complement your equity strategies with crypto exposure.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Exchange integration patterns and real-time market data handling in CCXT mirror payment rail connectivity challenges\u2014useful reference architecture for multi-bank API abstraction.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Python bindings can feed crypto price alerts into n8n workflows for automated portfolio monitoring or DCA execution triggers.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": true,
+        "cross_domain_leap": "The stablecoin trading capabilities (USDC, USDT pairs) connect your blockchain payments exploration at Redpin with practical liquidity rails testing before production integration."
+      }
+    },
+    {
+      "id": "juspay/hyperswitch",
+      "name": "hyperswitch",
+      "owner": "juspay",
+      "description": "Open source, composable payments platform | PCI compliant | SaaS and Self-host options | Enables connectivity to multiple payment, payout, fraud, vault and tokenization providers | Uplifts authorization with intelligent routing and revenue recovery | Reduce payment processing costs with cost observability | Reduces payment ops with reconciliation",
+      "stars": 42835,
+      "forks": 4779,
+      "language": "Rust",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "adyen",
+        "beginner-friendly",
+        "featured",
+        "finance",
+        "fintech",
+        "hacktoberfest",
+        "high-performance",
+        "open-source",
+        "orchestration",
+        "payment",
+        "payment-gateway",
+        "payment-integration",
+        "payment-processing",
+        "payments",
+        "payments-platform",
+        "restful-api",
+        "rust",
+        "sdk",
+        "stripe",
+        "works-with-react"
+      ],
+      "url": "https://github.com/juspay/hyperswitch",
+      "found_via": [
+        "payments"
+      ],
+      "readme_excerpt": "<p align=\"center\">\n  <img src=\"./docs/imgs/hyperswitch-logo-dark.svg#gh-dark-mode-only\" alt=\"Hyperswitch-Logo\" width=\"40%\" />\n  <img src=\"./docs/imgs/hyperswitch-logo-light.svg#gh-light-mode-only\" alt=\"Hyperswitch-Logo\" width=\"40%\" />\n</p>\n\n<h1 align=\"center\">Composable Open-Source Payments Infrastructure</h1>\n\n<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/juspay/hyperswitch/main/docs/gifs/quickstart.gif\" alt=\"Quickstart demo\" />\n</p>\n\n\n<!-- @import \"[TOC]\" {cmd=\"toc\" depthFro",
+      "analysis": {
+        "repo_id": "juspay/hyperswitch",
+        "scores": {
+          "payments": {
+            "score": 98,
+            "reasoning": "This is a composable payments orchestration platform with PCI compliance, multi-provider connectivity, intelligent routing, and reconciliation - directly aligned with ACH, open banking, embedded finance, and RegTech objectives.",
+            "confidence": 98
+          },
+          "markets": {
+            "score": 12,
+            "reasoning": "No direct relevance to trading, options strategies, or portfolio management; purely payment infrastructure with no market data or trading functionality.",
+            "confidence": 90
+          },
+          "ai_efficiency": {
+            "score": 35,
+            "reasoning": "Intelligent routing and revenue recovery suggest ML-based optimization, and the platform reduces payment ops overhead, but no explicit AI agents or workflow automation tools.",
+            "confidence": 70
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No relevance to content creation, social media analytics, or creator intelligence tools.",
+            "confidence": 95
+          }
+        },
+        "primary_domain": "payments",
+        "urgency": "high",
+        "summary": "Hyperswitch is a production-grade, open-source payments orchestration platform offering multi-processor connectivity, intelligent routing, and cost observability\u2014directly applicable to Redpin's payment infrastructure strategy. With 42K+ stars and enterprise-ready features including PCI compliance and reconciliation, this represents a high-priority evaluation for reducing processing costs and vendor lock-in."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "redpin",
+            "insight": "Hyperswitch's multi-processor orchestration could reduce Redpin's dependency on single rails like Chase/Cross River while its intelligent routing optimizes authorization rates across ACH and card payments.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Built-in reconciliation engine directly addresses Redpin's payment ops overhead, potentially replacing custom reconciliation scripts with production-tested infrastructure.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "PCI-compliant vault and tokenization layer could accelerate Redpin's blockchain/stablecoin exploration by providing secure credential storage for new payment rails.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Hyperswitch's cost observability dashboards could feed into n8n workflows for automated alerts when processing costs spike or authorization rates drop.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "vnpy/vnpy",
+      "name": "vnpy",
+      "owner": "vnpy",
+      "description": "\u57fa\u4e8ePython\u7684\u5f00\u6e90\u91cf\u5316\u4ea4\u6613\u5e73\u53f0\u5f00\u53d1\u6846\u67b6",
+      "stars": 41398,
+      "forks": 11862,
+      "language": "Python",
+      "last_pushed": "2026-05-17",
+      "topics": [
+        "algotrading",
+        "finance",
+        "fintech",
+        "investment",
+        "python",
+        "quant",
+        "trading",
+        "vnpy"
+      ],
+      "url": "https://github.com/vnpy/vnpy",
+      "found_via": [
+        "payments"
+      ],
+      "readme_excerpt": "# VeighNa - By Traders, For Traders, AI-Powered.\n\n<p align=\"center\">\n  <img src =\"https://vnpy.oss-cn-shanghai.aliyuncs.com/veighna-logo.png\"/>\n</p>\n\n\ud83d\udcac Want to read this in **english** ? Go [**here**](README_ENG.md)\n\n<p align=\"center\">\n    <img src =\"https://img.shields.io/badge/version-4.4.0-blueviolet.svg\"/>\n    <img src =\"https://img.shields.io/badge/platform-windows|linux|macos-yellow.svg\"/>\n    <img src =\"https://img.shields.io/badge/python-3.10|3.11|3.12|3.13-blue.svg\" />\n    <img src =\"ht",
+      "analysis": {
+        "repo_id": "vnpy/vnpy",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No relevance to payment rails, ACH/NACHA, open banking, or RegTech; purely focused on trading infrastructure.",
+            "confidence": 90
+          },
+          "markets": {
+            "score": 95,
+            "reasoning": "Premier open-source quantitative trading framework supporting algo trading, backtesting, risk management, and multi-asset strategies across global equities and crypto markets.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 25,
+            "reasoning": "While AI-powered per tagline, primarily serves trading automation rather than workflow efficiency tools, Claude plugins, or multi-agent systems for ops.",
+            "confidence": 75
+          },
+          "growth": {
+            "score": 0,
+            "reasoning": "No relevance to social media analytics, creator tools, or content intelligence platforms.",
+            "confidence": 95
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "VeighNa is a mature, highly-starred Python quantitative trading framework directly aligned with your NIFTY options strategies, backtesting needs, and quant infrastructure requirements. With 41K+ stars and comprehensive algo trading capabilities, this represents a high-priority resource for building or enhancing systematic trading operations."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "VeighNa's event-driven backtesting engine and real-time data feeds can systematize your NIFTY CE/PE first 5-minute candle strategy with proper slippage modeling and position sizing.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "The framework's CTA (Commodity Trading Advisor) module provides pre-built momentum strategy templates that align directly with your intraday momentum approach.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Risk management modules for options Greeks calculation and portfolio-level exposure tracking can strengthen your financial advisor tooling.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "VeighNa's architecture patterns for handling high-frequency event streams and reconciliation could inform Redpin's real-time payment monitoring system design.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": true,
+        "cross_domain_leap": "The repo's event-driven architecture for processing thousands of market ticks per second mirrors the design patterns needed for real-time payment monitoring and fraud scoring at Redpin, even though the domains differ."
+      }
+    },
+    {
+      "id": "ZhuLinsen/daily_stock_analysis",
+      "name": "daily_stock_analysis",
+      "owner": "ZhuLinsen",
+      "description": "LLM\u9a71\u52a8\u7684 A/H/\u7f8e\u80a1\u667a\u80fd\u5206\u6790\uff1a\u591a\u6570\u636e\u6e90\u884c\u60c5 + \u5b9e\u65f6\u65b0\u95fb + LLM\u51b3\u7b56\u4eea\u8868\u76d8 + \u591a\u6e20\u9053\u63a8\u9001\uff0c\u96f6\u6210\u672c\u5b9a\u65f6\u8fd0\u884c\uff0c\u7eaf\u767d\u5ad6. LLM-powered stock analysis system for A/H/US markets.",
+      "stars": 41213,
+      "forks": 39366,
+      "language": "Python",
+      "last_pushed": "2026-06-07",
+      "topics": [
+        "a-stock",
+        "ai-agent",
+        "aigc",
+        "llm",
+        "quant",
+        "quantitative-finance",
+        "quantitative-trading"
+      ],
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "<div align=\"center\">\n\n# \ud83d\udcc8 \u80a1\u7968\u667a\u80fd\u5206\u6790\u7cfb\u7edf\n\n[![GitHub stars](https://img.shields.io/github/stars/ZhuLinsen/daily_stock_analysis?style=social)](https://github.com/ZhuLinsen/daily_stock_analysis/stargazers)\n[![CI](https://github.com/ZhuLinsen/daily_stock_analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/ZhuLinsen/daily_stock_analysis/actions/workflows/ci.yml)\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\n[![Python 3.10+](https://",
+      "analysis": {
+        "repo_id": "ZhuLinsen/daily_stock_analysis",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No relevance to payment rails, open banking, blockchain payments, or regulatory technology - purely focused on stock market analysis.",
+            "confidence": 90
+          },
+          "markets": {
+            "score": 88,
+            "reasoning": "Highly relevant LLM-powered stock analysis system covering A/H/US equities with real-time news integration, decision dashboards, and quantitative trading focus aligning well with portfolio analysis needs.",
+            "confidence": 92
+          },
+          "ai_efficiency": {
+            "score": 62,
+            "reasoning": "Demonstrates AI agent architecture with LLM-driven workflows and automated scheduling for financial analysis, though not specifically targeting Claude MCP or n8n integrations.",
+            "confidence": 78
+          },
+          "growth": {
+            "score": 3,
+            "reasoning": "No relevance to social media content creation, YouTube Shorts analytics, or creator intelligence tools.",
+            "confidence": 95
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "A mature LLM-powered stock intelligence platform covering A-share, Hong Kong, and US markets with automated analysis pipelines and multi-channel alerting. The 41K stars and quantitative finance focus make this highly relevant for exploring AI-driven market analysis workflows and potential integration patterns."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Adapt the multi-market LLM analysis pipeline architecture for NIFTY options, using their news sentiment + price action fusion approach for first 5-minute candle decision support.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Study their zero-cost scheduled execution model (likely GitHub Actions + free LLM tiers) to build automated pre-market briefings for Indian markets without infrastructure costs.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Their multi-channel push notification architecture (WeChat/Telegram/email) can inform how Reel IQ alerts creators to trending content opportunities or performance anomalies.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Their scheduled LLM analysis + data aggregation pattern can template similar n8n workflows for any recurring intelligence task requiring multi-source synthesis.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "linshenkx/prompt-optimizer",
+      "name": "prompt-optimizer",
+      "owner": "linshenkx",
+      "description": "An AI prompt optimizer for writing better prompts and getting better AI results.",
+      "stars": 30574,
+      "forks": 3567,
+      "language": "TypeScript",
+      "last_pushed": "2026-06-02",
+      "topics": [
+        "ai-prompts",
+        "ai-tools",
+        "llm",
+        "prompt",
+        "prompt-engineering",
+        "prompt-optimization",
+        "prompt-optimizer",
+        "prompt-testing",
+        "prompt-toolkit",
+        "prompt-tuning"
+      ],
+      "url": "https://github.com/linshenkx/prompt-optimizer",
+      "found_via": [
+        "ai_efficiency"
+      ],
+      "readme_excerpt": "# Prompt Optimizer \ud83d\ude80\n\n<div align=\"center\">\n\n[English](README.md) | [\u4e2d\u6587](README.zh-CN.md)\n\n[![GitHub stars](https://img.shields.io/github/stars/linshenkx/prompt-optimizer)](https://github.com/linshenkx/prompt-optimizer/stargazers)\n![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/cakkkhboolfnadechdlgdcnjammejlna?style=flat&label=Chrome%20Users&link=https%3A%2F%2Fchromewebstore.google.com%2Fdetail%2F%25E6%258F%2590%25E7%25A4%25BA%25E8%25AF%258D%25E4%25BC%2598%25E5%258C%2596%2",
+      "analysis": {
+        "repo_id": "linshenkx/prompt-optimizer",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No relevance to payment rails, ACH/NACHA, open banking, blockchain payments, or RegTech\u2014purely a prompt engineering utility.",
+            "confidence": 90
+          },
+          "markets": {
+            "score": 8,
+            "reasoning": "Minimal indirect relevance; optimized prompts could theoretically improve quant research queries, but the tool itself has no trading or financial markets focus.",
+            "confidence": 85
+          },
+          "ai_efficiency": {
+            "score": 88,
+            "reasoning": "Directly enhances AI workflow efficiency by optimizing prompts for better LLM outputs, highly applicable to Claude plugins, multi-agent systems, and developer productivity in financial services automation.",
+            "confidence": 95
+          },
+          "growth": {
+            "score": 12,
+            "reasoning": "Could marginally assist content creators in crafting better AI-generated scripts for Shorts/Reels, but lacks direct analytics, repurposing, or audience growth features.",
+            "confidence": 80
+          }
+        },
+        "primary_domain": "ai_efficiency",
+        "urgency": "medium",
+        "summary": "This highly-starred prompt optimization toolkit directly supports AI efficiency initiatives by enabling teams to systematically improve LLM interactions and automate prompt testing workflows. Relevant for enhancing internal AI-driven operations tools, though not aligned with core payments or trading priorities."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "reel_iq",
+            "insight": "Integrate prompt optimization to improve Claude API content scoring accuracy and reduce token costs for engagement prediction models.",
+            "impact": "high"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Use prompt testing framework to systematically refine n8n AI nodes and Apps Script LLM calls for more reliable automated workflows.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Apply optimized prompts to improve fraud scoring explanations and KYC document extraction accuracy in compliance workflows.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "Gitlawb/openclaude",
+      "name": "openclaude",
+      "owner": "Gitlawb",
+      "description": "runs anywhere. uses anything",
+      "stars": 28469,
+      "forks": 8714,
+      "language": "TypeScript",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "ai",
+        "ai-agent",
+        "ai-tools",
+        "cli",
+        "coding"
+      ],
+      "url": "https://github.com/Gitlawb/openclaude",
+      "found_via": [
+        "ai_efficiency"
+      ],
+      "readme_excerpt": "# OpenClaude\n\nOpenClaude is an open-source coding-agent CLI for cloud and local model providers.\n\nUse OpenAI-compatible APIs, Gemini, GitHub Models, Codex OAuth, Codex, Ollama, Atomic Chat, and other supported backends while keeping one terminal-first workflow: prompts, tools, agents, MCP, slash commands, and streaming output.\n\n[![PR Checks](https://github.com/Gitlawb/openclaude/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/Gitlawb/openclaude/actions/workflows/pr-che",
+      "analysis": {
+        "repo_id": "Gitlawb/openclaude",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No direct relevance to payment rails, ACH, open banking, or RegTech\u2014purely a general-purpose coding agent CLI.",
+            "confidence": 85
+          },
+          "markets": {
+            "score": 5,
+            "reasoning": "No features for trading, portfolio management, quant strategies, or financial market analysis.",
+            "confidence": 85
+          },
+          "ai_efficiency": {
+            "score": 92,
+            "reasoning": "Directly implements MCP support, multi-model AI agents, and terminal-first workflow automation\u2014core to developer productivity and Claude plugin ecosystems.",
+            "confidence": 95
+          },
+          "growth": {
+            "score": 3,
+            "reasoning": "No relevance to social media analytics, creator tools, or content intelligence platforms like Reel IQ.",
+            "confidence": 90
+          }
+        },
+        "primary_domain": "ai_efficiency",
+        "urgency": "high",
+        "summary": "OpenClaude is a highly relevant open-source CLI that unifies multiple AI backends including MCP support, directly aligned with your AI efficiency and multi-agent workflow automation priorities. With 28K+ stars and active development, this could accelerate internal tooling for ops automation and developer productivity at Redpin.",
+        "confidence": 92
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "automation",
+            "insight": "OpenClaude's unified CLI with MCP support could replace fragmented AI tool calls in n8n workflows, letting you pipe Claude/GPT/local models into Google Sheets automations with a single interface.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Multi-backend AI CLI enables building internal ops tools (fraud review summaries, reconciliation anomaly explanations) without vendor lock-in to any single LLM provider.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Swap or A/B test Claude API against other backends for content scoring without rewriting Streamlit app logic\u2014useful for cost optimization or capability comparison.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "wilsonfreitas/awesome-quant",
+      "name": "awesome-quant",
+      "owner": "wilsonfreitas",
+      "description": "A curated list of insanely awesome libraries, packages and resources for Quants (Quantitative Finance)",
+      "stars": 26663,
+      "forks": 3559,
+      "language": "HTML",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "algorithmic-trading-engine",
+        "algorithmic-trading-library",
+        "algotrading",
+        "arbitrage-bot",
+        "awesome",
+        "awesome-list",
+        "finance",
+        "finance-api",
+        "financial-data",
+        "financial-instruments",
+        "google-finance",
+        "quant",
+        "quantitative-finance",
+        "quantitative-trading",
+        "stock-data",
+        "technical-analysis",
+        "trading-algorithms",
+        "trading-bot",
+        "trading-strategies",
+        "yahoo-finance"
+      ],
+      "url": "https://github.com/wilsonfreitas/awesome-quant",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "# Awesome Quant\n\nA curated list of insanely awesome libraries, packages and resources for Quants (Quantitative Finance).\n\n[![](https://awesome.re/badge.svg)](https://awesome.re)\n\n## Contents\n\n- [Numerical Libraries & Data Structures](#numerical-libraries-data-structures)\n- [Financial Instruments & Pricing](#financial-instruments-pricing)\n- [Technical Indicators](#technical-indicators)\n- [Trading & Backtesting](#trading-backtesting)\n- [Portfolio Optimization & Risk Analysis](#portfolio-optimizati",
+      "analysis": {
+        "repo_id": "wilsonfreitas/awesome-quant",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "This is purely a quantitative finance resource list with no relevance to payment rails, open banking, or RegTech infrastructure.",
+            "confidence": 90
+          },
+          "markets": {
+            "score": 95,
+            "reasoning": "Directly curated for quant trading covering algorithmic strategies, technical analysis, backtesting tools, stock data APIs, and trading bots\u2014core to options/equities portfolio management.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 25,
+            "reasoning": "While some listed libraries may incorporate ML/AI for trading, the repo itself is a static resource list rather than an automation or AI efficiency tool.",
+            "confidence": 75
+          },
+          "growth": {
+            "score": 0,
+            "reasoning": "No relevance to social media analytics, creator tools, or content intelligence platforms.",
+            "confidence": 95
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "Premier curated resource aggregating 26K+ stars worth of quantitative finance libraries spanning algorithmic trading engines, backtesting frameworks, and financial data APIs. Essential reference for building or enhancing systematic trading infrastructure and quant strategy development."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "This is the master index for backtesting frameworks, risk models, and quant strategy libraries you need to build systematic NIFTY options and global equity trading systems.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Contains curated financial data APIs and portfolio optimization tools essential for your portfolio rebalancing and financial advisor tooling projects.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Finance API section includes payment infrastructure libraries and reconciliation tools that could streamline real-time payment monitoring systems.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Time series analysis and statistical libraries listed here could enhance your engagement prediction models with more sophisticated forecasting techniques.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "Fosowl/agenticSeek",
+      "name": "agenticSeek",
+      "owner": "Fosowl",
+      "description": "Fully Local Manus AI. No APIs, No $200 monthly bills. Enjoy an autonomous agent that thinks, browses the web, and code for the sole cost of electricity. \ud83d\udd14 Official updates only via twitter @Martin993886460 (Beware of fake account)",
+      "stars": 26470,
+      "forks": 2972,
+      "language": "Python",
+      "last_pushed": "2026-06-07",
+      "topics": [
+        "agentic-ai",
+        "agents",
+        "ai",
+        "autonomous-agents",
+        "deepseek-r1",
+        "llm",
+        "llm-agents",
+        "voice-assistant"
+      ],
+      "url": "https://github.com/Fosowl/agenticSeek",
+      "found_via": [
+        "ai_efficiency"
+      ],
+      "readme_excerpt": "# AgenticSeek: Private, Local Manus Alternative.\n\n<p align=\"center\">\n<img align=\"center\" src=\"./media/agentic_seek_logo.png\" width=\"300\" height=\"300\" alt=\"Agentic Seek Logo\">\n<p>\n\n  English | [\u4e2d\u6587](./README_CHS.md) | [\u7e41\u9ad4\u4e2d\u6587](./README_CHT.md) | [Fran\u00e7ais](./README_FR.md) | [\u65e5\u672c\u8a9e](./README_JP.md) | [Portugu\u00eas (Brasil)](./README_PTBR.md) | [Espa\u00f1ol](./README_ES.md) | [T\u00fcrk\u00e7e](./README_TR.md)\n\n*A **100% local alternative to Manus AI**, this voice-enabled AI assistant autonomously browses the web, write",
+      "analysis": {
+        "repo_id": "Fosowl/agenticSeek",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No direct relevance to payment rails, ACH/NACHA, blockchain payments, or RegTech; general-purpose autonomous agent without financial services focus.",
+            "confidence": 85
+          },
+          "markets": {
+            "score": 10,
+            "reasoning": "Could theoretically be adapted for trading research or backtesting workflows, but no native support for NIFTY options, quant strategies, or portfolio management.",
+            "confidence": 80
+          },
+          "ai_efficiency": {
+            "score": 88,
+            "reasoning": "Directly aligned with multi-agent systems, workflow automation, and developer productivity through a fully local autonomous AI that browses, codes, and reasons without API costs.",
+            "confidence": 95
+          },
+          "growth": {
+            "score": 8,
+            "reasoning": "No specific features for YouTube Shorts, TikTok analytics, content repurposing, or creator intelligence tools.",
+            "confidence": 85
+          }
+        },
+        "primary_domain": "ai_efficiency",
+        "urgency": "high",
+        "summary": "AgenticSeek is a fully local, cost-free alternative to cloud-based AI agents, enabling autonomous browsing, coding, and reasoning without API dependencies. High-potential tool for internal ops efficiency and developer productivity initiatives, warranting immediate evaluation for workflow automation use cases."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "automation",
+            "insight": "Deploy locally to automate Redpin ops tasks like reconciliation report generation and compliance doc lookups without per-API-call costs.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Use autonomous browsing capability to monitor competitor payment rails, regulatory updates, or ISO 20022 implementation news hands-free.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Run local coding agent to prototype new Streamlit features or generate content analysis scripts without burning Claude API credits during dev cycles.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Task the agent to scrape and synthesize pre-market global news or backtest strategy code iterations autonomously overnight.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "ranaroussi/yfinance",
+      "name": "yfinance",
+      "owner": "ranaroussi",
+      "description": "Download market data from Yahoo! Finance's API",
+      "stars": 24128,
+      "forks": 3303,
+      "language": "Python",
+      "last_pushed": "2026-06-05",
+      "topics": [
+        "financial-data",
+        "fix-yahoo-finance",
+        "market-data",
+        "pandas",
+        "python",
+        "stock-data",
+        "yahoo-finance",
+        "yahoo-finance-api"
+      ],
+      "url": "https://github.com/ranaroussi/yfinance",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "<img src=\"./doc/yfinance-gh-logo-dark.webp#gh-dark-mode-only\" height=\"100\">\n<img src=\"./doc/yfinance-gh-logo-light.webp#gh-light-mode-only\" height=\"100\">\n\n# Download market data from Yahoo! Finance's API\n\n<a target=\"new\" href=\"https://pypi.python.org/pypi/yfinance\"><img border=0 src=\"https://img.shields.io/badge/python-2.7,%203.6+-blue.svg?style=flat\" alt=\"Python version\"></a>\n<a target=\"new\" href=\"https://pypi.python.org/pypi/yfinance\"><img border=0 src=\"https://img.shields.io/pypi/v/yfinance.s",
+      "analysis": {
+        "repo_id": "ranaroussi/yfinance",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No relevance to payment rails, open banking, or financial transaction infrastructure.",
+            "confidence": 90
+          },
+          "markets": {
+            "score": 92,
+            "reasoning": "Core utility for downloading equity, options, and market data from Yahoo Finance, directly enabling NIFTY options analysis, backtesting, portfolio tools, and quant strategies.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 35,
+            "reasoning": "Useful as a data source in automated workflows and AI-driven financial analysis pipelines, but not an AI/automation tool itself.",
+            "confidence": 75
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No connection to social media analytics, content creation, or creator growth tools.",
+            "confidence": 95
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "yfinance is a widely-adopted Python library for programmatic access to Yahoo Finance market data, directly relevant for building options trading tools, backtesting engines, and portfolio analytics. With 24K+ stars and active maintenance, this is foundational infrastructure for any markets-focused development work."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Core data source for building your NIFTY options backtesting framework\u2014pull historical CE/PE prices, calculate first 5-minute candle signals, and test momentum strategies programmatically.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Feed real-time ticker data into portfolio rebalancing scripts and risk models for global equities tracking.",
+            "impact": "high"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Combine with n8n or Google Sheets scripts to auto-refresh watchlist prices, track P&L, or trigger alerts on price movements.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "nautechsystems/nautilus_trader",
+      "name": "nautilus_trader",
+      "owner": "nautechsystems",
+      "description": "Production-grade Rust-native trading engine with deterministic event-driven architecture",
+      "stars": 23366,
+      "forks": 2955,
+      "language": "Rust",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "algorithmic-trading-engine",
+        "artificial-intelligence",
+        "crypto-trading",
+        "equity-trading",
+        "forex",
+        "futures-trading",
+        "machine-learning",
+        "options-trading",
+        "python",
+        "rust",
+        "sports-betting",
+        "trading",
+        "trading-platform"
+      ],
+      "url": "https://github.com/nautechsystems/nautilus_trader",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "# <img src=\"https://github.com/nautechsystems/nautilus_trader/raw/develop/assets/nautilus-trader-logo.png\" width=\"500\">\n\n[![codecov](https://codecov.io/gh/nautechsystems/nautilus_trader/branch/master/graph/badge.svg?token=DXO9QQI40H)](https://codecov.io/gh/nautechsystems/nautilus_trader)\n[![codspeed](https://img.shields.io/endpoint?url=https://codspeed.io/badge.json)](https://codspeed.io/nautechsystems/nautilus_trader)\n![pythons](https://img.shields.io/pypi/pyversions/nautilus_trader)\n![pypi-ver",
+      "analysis": {
+        "repo_id": "nautechsystems/nautilus_trader",
+        "scores": {
+          "payments": {
+            "score": 12,
+            "reasoning": "No direct relevance to payment rails, ACH, or RegTech; purely a trading execution engine without payment infrastructure components.",
+            "confidence": 85
+          },
+          "markets": {
+            "score": 95,
+            "reasoning": "Production-grade algorithmic trading engine supporting options, equities, futures, forex, and crypto with backtesting, risk management, and quantitative strategy execution capabilities.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 35,
+            "reasoning": "Includes machine learning and AI integration points for trading strategies, but not focused on workflow automation, Claude plugins, or general ops efficiency tools.",
+            "confidence": 70
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No relevance to social media analytics, creator tools, or content intelligence platforms.",
+            "confidence": 90
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "NautilusTrader is a high-performance, Rust-native algorithmic trading engine with Python bindings that directly aligns with quantitative strategy development, backtesting, and multi-asset execution across equities, options, and crypto. Its deterministic event-driven architecture and 23K+ stars signal institutional-grade maturity worth immediate evaluation for trading infrastructure modernization.",
+        "confidence": 95
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Replace your current backtesting framework with NautilusTrader's deterministic event-driven engine to test NIFTY options strategies with tick-level precision and realistic slippage modeling.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Use its multi-asset portfolio management to unify your NIFTY options, global equities, and quant strategies into a single execution layer with proper risk controls.",
+            "impact": "high"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "The ML/AI integration patterns for financial prediction could inform how you architect Claude API scoring pipelines for engagement prediction at scale.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "saleor/saleor",
+      "name": "saleor",
+      "owner": "saleor",
+      "description": "Saleor Core: the high performance, composable, headless commerce API.",
+      "stars": 22962,
+      "forks": 6042,
+      "language": "Python",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "cart",
+        "checkout",
+        "commerce",
+        "composable",
+        "e-commerce",
+        "ecommerce",
+        "graphql",
+        "headless",
+        "headless-commerce",
+        "multichannel",
+        "oms",
+        "order-management",
+        "payments",
+        "pim",
+        "python",
+        "shop",
+        "shopping-cart",
+        "store"
+      ],
+      "url": "https://github.com/saleor/saleor",
+      "found_via": [
+        "payments"
+      ],
+      "readme_excerpt": "<div align=\"center\" width=\"100px\">\n\n <picture>\n   <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/user-attachments/assets/76e3079f-696a-4fcd-8658-89739647090b\">\n   <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/user-attachments/assets/8477d643-a905-4c63-8ed3-03d0976f6fc3\">\n   <img width=\"200\" alt=\"saleor-commerce-logo\" src=\"https://user-images.githubusercontent.com/4006792/214636328-8e4f83e8-66cb-4114-a3d8-473eb908b9c3.png\">\n\n </picture>\n</div>\n\n",
+      "analysis": {
+        "repo_id": "saleor/saleor",
+        "scores": {
+          "payments": {
+            "score": 62,
+            "reasoning": "E-commerce platform with checkout and payments integration capabilities, relevant to embedded finance and payment rails though not core payment infrastructure.",
+            "confidence": 75
+          },
+          "markets": {
+            "score": 8,
+            "reasoning": "Commerce platform with no relevance to trading, equities, or financial market instruments.",
+            "confidence": 90
+          },
+          "ai_efficiency": {
+            "score": 22,
+            "reasoning": "Python-based with potential for automation integration but not focused on AI agents, workflow automation, or developer productivity tools.",
+            "confidence": 70
+          },
+          "growth": {
+            "score": 15,
+            "reasoning": "Multichannel commerce supports sales distribution but lacks direct relevance to social media analytics, creator tools, or content intelligence.",
+            "confidence": 80
+          }
+        },
+        "primary_domain": "payments",
+        "urgency": "medium",
+        "summary": "Saleor is a high-performance headless commerce API with robust checkout and payments infrastructure, potentially relevant for embedded finance use cases in retail payment flows. While not core payment rails technology, its composable architecture could support fintech integrations for merchant-facing payment solutions."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "redpin",
+            "insight": "Saleor's checkout/payments API patterns could inform how Redpin builds merchant-facing disbursement or embedded payment flows for e-commerce clients.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "GraphQL-first architecture offers a template for building composable internal tools that integrate multiple payment and reconciliation services.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "QuantConnect/Lean",
+      "name": "Lean",
+      "owner": "QuantConnect",
+      "description": "Lean Algorithmic Trading Engine by QuantConnect (Python, C#)",
+      "stars": 19769,
+      "forks": 4905,
+      "language": "C#",
+      "last_pushed": "2026-06-04",
+      "topics": [
+        "algorithm",
+        "algorithmic-trading-engine",
+        "c-sharp",
+        "finance",
+        "forex",
+        "lean-engine",
+        "options",
+        "python",
+        "quantconnect",
+        "stock-indicators",
+        "trading",
+        "trading-algorithms",
+        "trading-bot",
+        "trading-platform",
+        "trading-strategies"
+      ],
+      "url": "https://github.com/QuantConnect/Lean",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "<picture >\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/user-attachments/assets/f3581da5-1983-4f6c-af5a-55c79b37913a\">\n  <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/user-attachments/assets/0f8022d5-952d-418c-9011-2644830137d2\">\n  <img alt=\"lean-header\" width=\"100%\">\n</picture>\n<br />\n<br />\n\n[![Build Status](https://github.com/QuantConnect/Lean/workflows/Build%20%26%20Test%20Lean/badge.svg)](https://github.com/QuantConnect/Lean/actions?qu",
+      "analysis": {
+        "repo_id": "QuantConnect/Lean",
+        "scores": {
+          "payments": {
+            "score": 8,
+            "reasoning": "No direct relevance to payments infrastructure, ACH/NACHA, open banking, or RegTech\u2014purely a trading engine.",
+            "confidence": 90
+          },
+          "markets": {
+            "score": 95,
+            "reasoning": "Industry-leading open-source algorithmic trading engine supporting options, equities, forex with full backtesting, quant strategies, and risk management\u2014directly aligned with NIFTY options trading and portfolio management needs.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 25,
+            "reasoning": "While it enables automated trading workflows, it lacks AI/ML agent systems, Claude integrations, or ops efficiency tooling focus.",
+            "confidence": 80
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No relevance to social media analytics, content creation, or creator intelligence platforms.",
+            "confidence": 95
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "QuantConnect's Lean is a premier open-source algorithmic trading engine supporting options, equities, and forex with robust backtesting and strategy development capabilities. This is a high-priority resource for building and validating quantitative trading strategies across global markets including NIFTY derivatives."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Use Lean's options module to backtest your NIFTY CE/PE first-5-minute candle strategies with historical Indian derivatives data before risking capital.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "Leverage Lean's portfolio rebalancing and risk management frameworks to formalize your global equities allocation rules into executable algorithms.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Lean's event-driven architecture and financial modeling patterns could inform how Redpin structures real-time payment monitoring and reconciliation workflows.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "hummingbot/hummingbot",
+      "name": "hummingbot",
+      "owner": "hummingbot",
+      "description": "Open source software that helps you create and deploy high-frequency crypto trading bots",
+      "stars": 18822,
+      "forks": 4719,
+      "language": "Python",
+      "last_pushed": "2026-06-06",
+      "topics": [
+        "algotrading",
+        "arbitrage",
+        "backtesting",
+        "bitcoin",
+        "bot",
+        "crypto",
+        "cryptocurrency",
+        "cython",
+        "dex",
+        "docker",
+        "ethereum",
+        "hft",
+        "marketmaking",
+        "orderbook",
+        "python",
+        "trading"
+      ],
+      "url": "https://github.com/hummingbot/hummingbot",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "![Hummingbot](https://github.com/user-attachments/assets/3213d7f8-414b-4df8-8c1b-a0cd142a82d8)\n\n----\n[![License](https://img.shields.io/badge/License-Apache%202.0-informational.svg)](https://github.com/hummingbot/hummingbot/blob/master/LICENSE)\n[![Twitter](https://img.shields.io/twitter/url?url=https://twitter.com/_hummingbot?style=social&label=_hummingbot)](https://twitter.com/_hummingbot)\n[![Youtube](https://img.shields.io/youtube/channel/subscribers/UCxzzdEnDRbylLMWmaMjywOA)](https://www.yout",
+      "analysis": {
+        "repo_id": "hummingbot/hummingbot",
+        "scores": {
+          "payments": {
+            "score": 25,
+            "reasoning": "Crypto trading bot with DEX integrations touches blockchain payments infrastructure peripherally but focuses on trading execution rather than payment rails or RegTech.",
+            "confidence": 70
+          },
+          "markets": {
+            "score": 85,
+            "reasoning": "Directly relevant as high-frequency crypto trading platform with backtesting, market making, arbitrage, and orderbook management aligning with quant strategies and crypto trading interests.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 35,
+            "reasoning": "Python-based automation tool for trading workflows offers efficiency gains but lacks AI/ML integration or multi-agent system capabilities native to the codebase.",
+            "confidence": 75
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No relevance to content creation, social media analytics, or audience growth tools.",
+            "confidence": 95
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "Enterprise-grade open source crypto trading infrastructure with 18K+ stars, enabling algorithmic trading, market making, and backtesting across centralized and decentralized exchanges. Directly applicable to building quant trading strategies and automated portfolio management systems."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Hummingbot's backtesting framework and quant strategy templates can be adapted for NIFTY options momentum strategies and portfolio rebalancing automation.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "The exchange connector architecture demonstrates robust API integration patterns for handling high-frequency financial transactions with reconciliation logic.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation_stack",
+            "insight": "Cython-optimized bot framework shows how to build production-grade automated workflows that run 24/7 with minimal intervention.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "questdb/questdb",
+      "name": "questdb",
+      "owner": "questdb",
+      "description": "QuestDB is a high performance, open-source, time-series database",
+      "stars": 17031,
+      "forks": 1596,
+      "language": "Java",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "capital-markets",
+        "cpp",
+        "database",
+        "financial-analysis",
+        "grafana",
+        "java",
+        "kdb",
+        "low-latency",
+        "market-data",
+        "olap",
+        "parquet",
+        "postgresql",
+        "questdb",
+        "real-time-analytics",
+        "simd",
+        "sql",
+        "tick-data",
+        "time-series",
+        "time-series-database",
+        "tsdb"
+      ],
+      "url": "https://github.com/questdb/questdb",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "<div align=\"center\">\n  <a href=\"https://questdb.com/\" target=\"blank\"><img alt=\"QuestDB Logo\" src=\"https://questdb.com/img/questdb-logo-themed.svg\" width=\"305px\"/></a>\n</div>\n<p>&nbsp;</p>\n\n<p align=\"center\">\n  <a href=\"#contribute\">\n    <img src=\"https://img.shields.io/github/contributors/questdb/questdb\" alt=\"QuestDB open source contributors\"/>\n  </a>\n</p>\n\n<p align=\"center\">\n  English |\n  <a href=\"./i18n/README.zh-cn.md\">\u7b80\u4f53\u4e2d\u6587</a>\n</p>\n\n---\n\nQuestDB is an open-source time-series database offeri",
+      "analysis": {
+        "repo_id": "questdb/questdb",
+        "scores": {
+          "payments": {
+            "score": 25,
+            "reasoning": "Time-series database could support payment transaction logging and RegTech compliance monitoring, but not directly built for payment rails or protocols.",
+            "confidence": 45
+          },
+          "markets": {
+            "score": 92,
+            "reasoning": "Explicitly designed for capital markets with tick-data, market-data topics, low-latency ingestion ideal for NIFTY options trading, quant backtesting, and real-time portfolio analytics.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 35,
+            "reasoning": "High-performance database could serve as backend for AI/ML pipelines and analytics workflows, but not directly an AI automation or agent tool.",
+            "confidence": 50
+          },
+          "growth": {
+            "score": 8,
+            "reasoning": "No relevance to social media analytics, creator tools, or content intelligence platforms.",
+            "confidence": 90
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "QuestDB is a high-performance time-series database purpose-built for capital markets, offering low-latency tick data ingestion and real-time analytics critical for quantitative trading strategies and market surveillance. With 17K+ stars and explicit focus on financial analysis, this represents foundational infrastructure for any serious trading or portfolio management system."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Store and query NIFTY options tick data at microsecond resolution for backtesting your first-candle momentum strategies with sub-second latency.",
+            "impact": "high"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "Use QuestDB for real-time payment transaction monitoring and fraud pattern detection across high-volume ACH flows with time-windowed analytics.",
+            "impact": "high"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Track influencer engagement metrics as time-series data to identify viral content patterns and optimal posting windows across platforms.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Replace slow Google Sheets lookups with QuestDB for any time-stamped operational data that needs fast aggregation or trend analysis.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "aiming-lab/AutoResearchClaw",
+      "name": "AutoResearchClaw",
+      "owner": "aiming-lab",
+      "description": "Fully autonomous & self-evolving research from idea to paper. Chat an Idea. Get a Paper. \ud83e\udd9e",
+      "stars": 13276,
+      "forks": 1560,
+      "language": "Python",
+      "last_pushed": "2026-06-03",
+      "topics": [
+        "autonomous-research",
+        "citation-verification",
+        "llm-agents",
+        "metaclaw",
+        "multi-agent-debate",
+        "openclaw",
+        "paper-generation",
+        "scientific-discovery",
+        "self-evolving"
+      ],
+      "url": "https://github.com/aiming-lab/AutoResearchClaw",
+      "found_via": [
+        "ai_efficiency"
+      ],
+      "readme_excerpt": "<p align=\"center\">\n  <img src=\"image/logo.png\" width=\"700\" alt=\"AutoResearchClaw Logo\">\n</p>\n\n<h2 align=\"center\"><b>Chat an Idea. Get a Paper. Autonomous, Collaborative & Self-Evolving.</b></h2>\n\n\n\n<p align=\"center\">\n  <b><i><font size=\"5\">Just chat with <a href=\"#openclaw-integration\">OpenClaw</a>: \"Research X\" \u2192 done.</font></i></b>\n</p>\n\n<p align=\"center\">\n  \ud83d\udcc4 <b>Our paper is on arXiv \u2014 come read it!</b> <a href=\"https://arxiv.org/abs/2605.20025\"><i>AutoResearchClaw: Self-Reinforcing Autonomo",
+      "analysis": {
+        "repo_id": "aiming-lab/AutoResearchClaw",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No relevance to payment rails, open banking, RegTech, or financial transaction infrastructure.",
+            "confidence": 85
+          },
+          "markets": {
+            "score": 8,
+            "reasoning": "While the autonomous research capability could theoretically analyze financial markets, there's no direct focus on trading, quant strategies, or portfolio management.",
+            "confidence": 80
+          },
+          "ai_efficiency": {
+            "score": 78,
+            "reasoning": "Multi-agent LLM system with self-evolving capabilities directly addresses AI workflow automation and developer productivity for research tasks, though not specifically financial services focused.",
+            "confidence": 88
+          },
+          "growth": {
+            "score": 5,
+            "reasoning": "No relevance to social media analytics, creator intelligence, content repurposing, or audience growth tools.",
+            "confidence": 90
+          }
+        },
+        "primary_domain": "ai_efficiency",
+        "urgency": "medium",
+        "summary": "AutoResearchClaw is a sophisticated multi-agent AI system that autonomously generates research papers from ideas, demonstrating advanced LLM orchestration patterns. While not FinTech-specific, its self-evolving agent architecture and collaborative debate mechanisms could inform internal AI automation initiatives for research and documentation workflows."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "reel_iq",
+            "insight": "The multi-agent debate architecture (OpenClaw/MetaClaw) could power a content strategy generator where AI agents debate optimal posting times, hook styles, and trending topics before recommending to influencers.",
+            "impact": "high"
+          },
+          {
+            "workflow": "automation",
+            "insight": "The paper generation pipeline's structured workflow (idea \u2192 research \u2192 writing \u2192 refinement) maps directly to automating Redpin's internal documentation and SOPs using similar agent orchestration.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "redpin",
+            "insight": "The citation verification and self-correction mechanisms could inform building automated compliance documentation that self-validates against regulatory sources.",
+            "impact": "low"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
+      "name": "PocketFlow-Tutorial-Codebase-Knowledge",
+      "owner": "The-Pocket",
+      "description": "Pocket Flow: Codebase to Tutorial",
+      "stars": 12380,
+      "forks": 1408,
+      "language": "Python",
+      "last_pushed": "2026-05-31",
+      "topics": [
+        "coding",
+        "large-language-model",
+        "large-language-models",
+        "llm",
+        "llm-agent",
+        "llm-agents",
+        "llm-application",
+        "llm-apps",
+        "llm-framework",
+        "llm-frameworks",
+        "llms",
+        "pocket-flow",
+        "pocketflow"
+      ],
+      "url": "https://github.com/The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
+      "found_via": [
+        "ai_efficiency"
+      ],
+      "readme_excerpt": "<h1 align=\"center\">Turns Codebase into Easy Tutorial with AI</h1>\n\n![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)\n <a href=\"https://discord.gg/hUHHE9Sa6T\">\n    <img src=\"https://img.shields.io/discord/1346833819172601907?logo=discord&style=flat\">\n</a>\n> *Ever stared at a new codebase written by others feeling completely lost? This tutorial shows you how to build an AI agent that analyzes GitHub repositories and creates beginner-friendly tutorials explaining exactly how the ",
+      "analysis": {
+        "repo_id": "The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "No relevance to payment rails, ACH/NACHA, open banking, or financial transaction infrastructure.",
+            "confidence": 85
+          },
+          "markets": {
+            "score": 5,
+            "reasoning": "No connection to trading strategies, portfolio management, options analysis, or financial market tools.",
+            "confidence": 85
+          },
+          "ai_efficiency": {
+            "score": 78,
+            "reasoning": "LLM-based tool that automates codebase documentation and tutorial generation, directly applicable to developer productivity and workflow automation for engineering teams.",
+            "confidence": 88
+          },
+          "growth": {
+            "score": 8,
+            "reasoning": "No relevance to social media analytics, content creation, or creator intelligence platforms.",
+            "confidence": 82
+          }
+        },
+        "primary_domain": "ai_efficiency",
+        "urgency": "medium",
+        "summary": "PocketFlow is an LLM-powered framework that automatically converts codebases into structured tutorials, significantly accelerating developer onboarding and documentation workflows. Strong fit for internal engineering efficiency initiatives, though not directly tied to core fintech operations.",
+        "confidence": 85
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "redpin",
+            "insight": "Auto-generate onboarding docs for Redpin's ACH/NACHA codebase to accelerate new engineer ramp-up on payment rails compliance code.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Use PocketFlow to create technical documentation and contributor guides for Reel IQ's Python/Streamlit codebase as you scale the platform.",
+            "impact": "high"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Deploy as an n8n-triggered workflow that auto-documents any internal tool or script Vikash builds, eliminating manual README maintenance.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    },
+    {
+      "id": "HKUDS/Vibe-Trading",
+      "name": "Vibe-Trading",
+      "owner": "HKUDS",
+      "description": "\"Vibe-Trading: Your Personal Trading Agent\"",
+      "stars": 11172,
+      "forks": 2184,
+      "language": "Python",
+      "last_pushed": "2026-06-08",
+      "topics": [
+        "ai-agent",
+        "algorithmic-trading",
+        "backtesting",
+        "fintech",
+        "llm",
+        "mcp",
+        "multi-agent",
+        "python",
+        "quantitative-finance",
+        "trading"
+      ],
+      "url": "https://github.com/HKUDS/Vibe-Trading",
+      "found_via": [
+        "markets"
+      ],
+      "readme_excerpt": "<p align=\"center\">\n  <b>English</b> | <a href=\"README_zh.md\">\u4e2d\u6587</a> | <a href=\"README_ja.md\">\u65e5\u672c\u8a9e</a> | <a href=\"README_ko.md\">\ud55c\uad6d\uc5b4</a> | <a href=\"README_ar.md\">\u0627\u0644\u0639\u0631\u0628\u064a\u0629</a>\n</p>\n\n<p align=\"center\">\n  <img src=\"assets/icon.png\" width=\"120\" alt=\"Vibe-Trading Logo\"/>\n</p>\n\n<h1 align=\"center\">Vibe-Trading: Your Personal Trading Agent</h1>\n\n<p align=\"center\">\n  <b>One Command to Empower Your Agent with Comprehensive Trading Capabilities</b>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://trendshift.io/repo",
+      "analysis": {
+        "repo_id": "HKUDS/Vibe-Trading",
+        "scores": {
+          "payments": {
+            "score": 5,
+            "reasoning": "This trading agent focuses on algorithmic trading and backtesting with no apparent relevance to payment rails, ACH/NACHA, open banking, or embedded finance infrastructure.",
+            "confidence": 85
+          },
+          "markets": {
+            "score": 92,
+            "reasoning": "Directly addresses quantitative finance with multi-agent LLM-powered trading, algorithmic strategies, backtesting capabilities, and fintech applications highly aligned with equities and options trading workflows.",
+            "confidence": 95
+          },
+          "ai_efficiency": {
+            "score": 78,
+            "reasoning": "Features MCP integration and multi-agent architecture for trading automation, directly applicable to AI-powered workflow efficiency and developer productivity tools in financial services.",
+            "confidence": 88
+          },
+          "growth": {
+            "score": 2,
+            "reasoning": "No relevance to content creation, social media analytics, YouTube Shorts, or creator intelligence tools\u2014purely a trading and quantitative finance project.",
+            "confidence": 92
+          }
+        },
+        "primary_domain": "markets",
+        "urgency": "high",
+        "summary": "High-star Python multi-agent trading system with MCP integration and backtesting capabilities directly aligns with your quantitative finance and AI efficiency priorities. The 11K+ stars and fintech focus suggest production-ready architecture worth immediate evaluation for portfolio strategy automation."
+      },
+      "connection": {
+        "connections": [
+          {
+            "workflow": "nifty_markets",
+            "insight": "Multi-agent backtesting framework could automate your first 5-minute candle NIFTY options analysis and validate intraday momentum strategies at scale.",
+            "impact": "high"
+          },
+          {
+            "workflow": "nifty_markets",
+            "insight": "MCP integration enables connecting Claude directly to your portfolio rebalancing logic for real-time quant strategy execution.",
+            "impact": "high"
+          },
+          {
+            "workflow": "reel_iq",
+            "insight": "Multi-agent architecture patterns from Vibe-Trading could inform scaling Reel IQ's Claude API calls across parallel content scoring pipelines.",
+            "impact": "medium"
+          },
+          {
+            "workflow": "automation",
+            "insight": "Python-native design means straightforward n8n webhook integration for automated trade signal alerts to your personal workflow stack.",
+            "impact": "medium"
+          }
+        ],
+        "cross_domain": false,
+        "cross_domain_leap": null
+      }
+    }
+  ]
+}
