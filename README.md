@@ -2,10 +2,12 @@
 
 > *"What's worth your attention today."*
 
-A fully autonomous, 5-agent AI system that scouts all of GitHub every Monday morning across 4 deep domains, scores the best repos with reasoning, maps each one to your specific workflows, and emails you one ranked executive brief — before your standup.
+A fully autonomous, 5-agent AI system that scouts all of GitHub every Monday morning, scores the best repos with reasoning, maps each one to your specific workflows, finds the **capability gaps in your own stack**, and emails you one ranked executive brief — before your standup.
+
+Discovery is no longer caged to topic tags: it runs **three lanes** (topic + full-text keyword + velocity/wildcard), scores a **notability** axis so off-thesis brilliance still surfaces, and ships **one-click install commands** for Claude Code, Codex, or any other tool.
 
 Built by **Vikash Rajan** · FinTech COO, Redpin Payments, Mumbai.
-Powered by **Claude Opus 4** · Deployed on **GitHub Actions** + **GitHub Pages**.
+Powered by **Claude Opus** (`claude-opus-4-5`, configurable via `ANTHROPIC_MODEL`) · Deployed on **GitHub Actions** + **GitHub Pages**.
 
 🌐 **Live app:** [thesoulofsuccess.github.io/github-intel-station](https://thesoulofsuccess.github.io/github-intel-station)
 
@@ -18,16 +20,18 @@ Every Monday 6:30 AM IST
         ↓
 ┌─────────────────────────────────────────────┐
 │  Agent 1 — Scout                            │
-│  49 query recipes across 4 domains, run     │
-│  in parallel. Scans last 30 days of GitHub  │
-│  activity. Not what you follow — all of it. │
+│  3 discovery lanes: topic tags + full-text  │
+│  keyword (finds UNTAGGED repos) + velocity/ │
+│  wildcard (just-shipped rockets). Ranked by │
+│  overlap × star-velocity × log(stars).      │
 └──────────────────┬──────────────────────────┘
                    ↓
 ┌─────────────────────────────────────────────┐
 │  Agent 2 — Analyst                          │
-│  Scores every repo 0-100 across 4 domains   │
-│  with reasoning + confidence. Powered by    │
-│  Claude Opus 4.                             │
+│  Scores 0-100 across 4 domains + a 5th      │
+│  NOTABILITY axis (impressive even if it     │
+│  fits no domain). Reasoning + confidence.   │
+│  Off-thesis greatness survives the filter.  │
 └──────────────────┬──────────────────────────┘
                    ↓
 ┌─────────────────────────────────────────────┐
@@ -45,20 +49,35 @@ Every Monday 6:30 AM IST
 └──────────────────┬──────────────────────────┘
                    ↓
 ┌─────────────────────────────────────────────┐
-│  Agent 5 — Learner                          │
-│  Thumbs up/down on picks updates domain     │
-│  weights. Every signal makes next week's    │
-│  brief smarter.                             │
+│  Agent 5 — Gap Scout                        │
+│  Holds the week's most notable repos up     │
+│  against YOUR stack (systems_manifest.json) │
+│  → capability gaps + how to close them,     │
+│  with install commands per tool.            │
 └──────────────────┬──────────────────────────┘
                    ↓
        📧 Email digest to your inbox
-       🌐 Full brief live on the web app
-       📁 brief.json committed to repo
+       🌐 Full brief + Gap Scout panel on the web app
+       📁 brief.json + adoption.md committed to repo
 ```
+
+> The frontend still has a thumbs-up/down **Learner** panel that nudges local domain weights (`localStorage`). Agent 5 in the pipeline is now **Gap Scout** — the gap-analysis + adoption engine.
 
 ---
 
-## The 4 Domains (49 query recipes total)
+## Discovery — 3 lanes, not just topic tags
+
+The old scout could only see repos a maintainer had manually tagged with one of our topics, and only if they were already popular. v3 fixes that:
+
+| Lane | What it catches |
+|------|-----------------|
+| **Topic** | On-thesis repos tagged with our domain topics (the established players). |
+| **Keyword** | Full-text search over name/description/readme with a low star floor — finds **untagged** gems the topic lane is blind to. |
+| **Velocity / Wildcard** | Domain-agnostic, recently-created repos with traction — **just-shipped rockets**, regardless of category. |
+
+Results merge, dedupe, and rank by `overlap × star-velocity × log(stars)` — so a fast-rising 80-star launch can beat a stale 5k-star repo. All queries live in a single source of truth: [`scripts/recipes.json`](scripts/recipes.json) (re-exported by the UI via `src/queries/recipes.js`, so the two never drift).
+
+## The 4 Domains
 
 ### 💳 Payments & FinTech
 ACH/NACHA, Open Banking, ISO 20022, blockchain payments, stablecoins, CBDCs, cross-border rails, RegTech, embedded finance, DeFi infrastructure.
@@ -84,6 +103,26 @@ Every repo is mapped by the Connector agent to at least one of these:
 | **NIFTY + Markets** | CE/PE options framework, first 5-min candle analysis, global equities, portfolio rebalancing, financial advisor tools |
 | **Reel IQ** | Python/Streamlit content intelligence SaaS, YouTube Shorts + TikTok + Reels analytics, creator engagement scoring |
 | **Automation** | n8n, Google Apps Script, Forms/Sheets, ops efficiency tools |
+
+---
+
+## Gap Scout — find what your own stack is missing
+
+Most repo tools tell you what exists. Gap Scout tells you **what you don't have yet.** It compares the week's most notable repos against [`scripts/systems_manifest.json`](scripts/systems_manifest.json) — a manifest of your actual systems (Redpin ops, this Intelligence Station, Reel IQ, NIFTY tooling, Automation stack) — and reports concrete **capability gaps**: what these repos do that yours don't, which system it upgrades, and the specific enhancement to make.
+
+Keep `systems_manifest.json` honest and current — it's the mirror the gap analysis holds up.
+
+## One-click adoption — install into any tool
+
+Every recommended repo **and** every gap ships copy-able install commands, with the right mechanism auto-detected (MCP server / plugin / skill / clone):
+
+| Target | Example |
+|--------|---------|
+| **Claude Code** | `claude mcp add <name> -- npx -y <pkg>` · `/plugin install …` · clone into `~/.claude/skills/` |
+| **Codex** | MCP entry in `~/.codex/config.toml`, or clone + reference in `AGENTS.md` |
+| **Any tool** | `git clone …` (+ `pip install -e .` / `npm install` by language) |
+
+These land in `public/brief.json` (per repo + per gap), in a generated [`public/adoption.md`](public/adoption.md) drop-in sheet, and behind an **`install +`** toggle on every card in the web app.
 
 ---
 
@@ -118,7 +157,9 @@ github-intel-station/
 │   └── scout.yml              ← Weekly scheduler (Mon 6:30 AM IST)
 │
 ├── scripts/
-│   ├── run_pipeline.py        ← Full 5-agent pipeline
+│   ├── run_pipeline.py        ← Full 5-agent pipeline (Scout→…→Gap Scout)
+│   ├── recipes.json           ← SINGLE SOURCE OF TRUTH: all discovery queries + config
+│   ├── systems_manifest.json  ← Your stack — what Gap Scout measures gaps against
 │   └── send_brief.py          ← HTML email digest sender
 │
 ├── src/
@@ -134,13 +175,14 @@ github-intel-station/
 │   │   ├── github.js          ← GitHub API helper + 6hr cache
 │   │   └── claude.js          ← Anthropic API helper
 │   ├── queries/
-│   │   └── recipes.js         ← 49 GitHub Search query recipes
+│   │   └── recipes.js         ← thin re-export of scripts/recipes.json (no drift)
 │   └── utils/
 │       └── export.js          ← Clipboard / markdown / txt export
 │
 ├── public/
 │   ├── brief.json             ← Latest brief (auto-updated weekly)
-│   ├── weights.json           ← Learner domain weights
+│   ├── adoption.md            ← Generated install/adoption sheet
+│   ├── weights.json           ← Learner domain weights (UI)
 │   └── favicon.svg
 │
 ├── package.json               ← Vite + React build config
@@ -264,13 +306,13 @@ Typography-led, calm, adaptive. Not a finance terminal — the Scout covers all 
 - [x] **Phase 5** — GitHub Actions scheduler + weekly dispatch
 - [x] **Phase 6** — Production Vite build + GitHub Pages deploy
 - [x] **Phase 7** — Gmail email digest to both inboxes
-- [x] **Phase 8** — Expanded 4-domain coverage (49 query recipes)
+- [x] **Phase 8** — Expanded 4-domain coverage
+- [x] **Phase 9 (v3)** — Multi-lane discovery (topic + keyword + velocity/wildcard), notability axis, Gap Scout, per-tool install/adoption, single-source `recipes.json`
 
 ### Roadmap
-- [ ] Phase 9 — Streamlit companion CLI
-- [ ] Phase 10 — Notion / Slack webhook integrations
-- [ ] Phase 11 — Skip-list training (auto-filter junk repos)
-- [ ] Phase 12 — Per-domain confidence calibration
+- [ ] Phase 10 — Persistent memory of past picks (never resurface the same repo; feedback-driven weights server-side)
+- [ ] Phase 11 — Auto-discover new topics from top repos (self-growing taxonomy)
+- [ ] Phase 12 — Notion / Slack webhook integrations + Streamlit companion CLI
 
 ---
 

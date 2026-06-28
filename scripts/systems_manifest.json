@@ -1,0 +1,72 @@
+{
+  "_comment": "Vikash's own systems. The Gap Scout agent compares notable discovered repos against THIS to answer: what capability are these repos showing that my stack lacks, and how do I adopt it? Keep this honest and current — it is the mirror the gap analysis holds up.",
+  "owner": "Vikash Rajan — Head of Global Operations, Redpin Payments (Mumbai)",
+  "preferred_tools": ["Claude Code", "Codex", "n8n", "Streamlit", "Google Apps Script"],
+  "systems": [
+    {
+      "name": "Redpin Payments Ops",
+      "stack": "Internal ops tooling, SWIFT/BACS/CHAPS/TT, ACH/NACHA monitoring",
+      "capabilities": [
+        "Cross-border FX + payment processing across 7 regions",
+        "Clearing, settlement, reconciliation, exception handling",
+        "STP measurement (Payment Out ~94%, Payment In ~70%)"
+      ],
+      "looking_for": [
+        "Manual-effort elimination (Barclays BACS/CHAPS/TT cases)",
+        "ISO 20022 / open-banking rails, reconciliation engines",
+        "Fraud/KYC/AML scoring, real-time payment monitoring"
+      ]
+    },
+    {
+      "name": "GitHub Intelligence Station",
+      "stack": "Python pipeline + GitHub Search API + Anthropic Claude, GitHub Actions + Pages",
+      "capabilities": [
+        "Multi-lane discovery (topic + keyword + velocity/wildcard)",
+        "5-agent pipeline: Scout, Analyst, Connector, Briefer, Gap Scout",
+        "Notability axis so off-thesis repos survive"
+      ],
+      "looking_for": [
+        "Persistent memory of past picks + feedback-driven weighting",
+        "Auto-discovery of new topics/taxonomy",
+        "Better discovery sources beyond GitHub Search"
+      ]
+    },
+    {
+      "name": "Reel IQ",
+      "stack": "Python / Streamlit + Claude API",
+      "capabilities": [
+        "Content intelligence for influencers",
+        "YouTube Shorts / TikTok / Instagram Reels performance analytics",
+        "Claude-based content scoring + trend detection"
+      ],
+      "looking_for": [
+        "Engagement prediction, audience-growth tooling",
+        "Content-repurposing + short-form video pipelines",
+        "Features/tech to expand the platform"
+      ]
+    },
+    {
+      "name": "NIFTY + Global Markets",
+      "stack": "Heuristic/systematic options tooling (AlphaEdge), ~Rs 20L options-focused",
+      "capabilities": [
+        "NIFTY CE/PE options, first 5-minute candle, intraday momentum",
+        "Macro-regime awareness"
+      ],
+      "looking_for": [
+        "Backtesting frameworks, options-pricing/greeks libraries",
+        "Risk models, portfolio rebalancing, quant strategy code"
+      ]
+    },
+    {
+      "name": "Automation Stack",
+      "stack": "n8n, Google Apps Script, Forms/Sheets",
+      "capabilities": [
+        "Workflow automation across personal + ops tasks"
+      ],
+      "looking_for": [
+        "Anything that reduces manual ops at Redpin",
+        "Agent frameworks, MCP servers, Claude Code skills to wire in"
+      ]
+    }
+  ]
+}

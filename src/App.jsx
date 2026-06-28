@@ -239,9 +239,98 @@ function BriefingPanel({ briefing, c, repos, onFeedback }) {
   );
 }
 
+function InstallBlock({ install, c }) {
+  const [copied, setCopied] = useState('');
+  if (!install) return null;
+  const rows = [
+    { k:'claude_code', l:'Claude Code', col:'#7C5CFF' },
+    { k:'codex',       l:'Codex',       col:'#2D9B8F' },
+    { k:'generic',     l:'Any tool',    col:'#D98E2B' },
+  ];
+  async function copy(k){ await copyText(install[k]); setCopied(k); setTimeout(()=>setCopied(''),1500); }
+  return (
+    <div style={{ marginTop:12, paddingTop:12, borderTop:`1px solid ${c.line}`,
+      display:'flex', flexDirection:'column', gap:6, animation:'fade .3s ease both' }}>
+      <span style={{ fontFamily:'IBM Plex Mono', fontSize:9, letterSpacing:2, color:c.faint, textTransform:'uppercase' }}>Install into</span>
+      {rows.map(({k,l,col})=> install[k] && (
+        <div key={k} onClick={()=>copy(k)} title="click to copy"
+          style={{ display:'flex', gap:9, alignItems:'baseline', cursor:'pointer',
+            background:c.raised, border:`1px solid ${copied===k?col:c.line}`, borderRadius:5, padding:'7px 10px', transition:'border-color .2s' }}>
+          <span style={{ fontSize:9, fontFamily:'IBM Plex Mono', color:col, flexShrink:0, width:74, textTransform:'uppercase', letterSpacing:.5 }}>{l}</span>
+          <code style={{ fontSize:11.5, fontFamily:'IBM Plex Mono', color:c.sub, lineHeight:1.5, wordBreak:'break-all', flex:1 }}>{install[k]}</code>
+          <span style={{ fontSize:9, fontFamily:'IBM Plex Mono', color:copied===k?col:c.faint, flexShrink:0 }}>{copied===k?'✓':'copy'}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function GapsPanel({ gaps, meta, c, visible }) {
+  const [open, setOpen] = useState(true);
+  const [copied, setCopied] = useState('');
+  if (!visible || !gaps || !gaps.length) return null;
+  const PRI = { high:'#C2476B', medium:'#D98E2B', low:'#2D9B8F' };
+  const tools = [
+    { k:'claude_code', l:'Claude Code', col:'#7C5CFF' },
+    { k:'codex',       l:'Codex',       col:'#2D9B8F' },
+    { k:'generic',     l:'Any tool',    col:'#D98E2B' },
+  ];
+  async function copy(id, text){ await copyText(text); setCopied(id); setTimeout(()=>setCopied(''),1500); }
+  return (
+    <div style={{ background:c.panel, border:`1px solid ${c.line}`, borderRadius:8, marginBottom:20, overflow:'hidden', animation:'rise .5s ease both' }}>
+      <button onClick={()=>setOpen(!open)} style={{ width:'100%', display:'flex', justifyContent:'space-between',
+        alignItems:'center', padding:'15px 22px', background:'none', border:'none', cursor:'pointer', color:c.ink }}>
+        <div style={{ display:'flex', alignItems:'center', gap:12, flexWrap:'wrap' }}>
+          <span style={{ fontFamily:'IBM Plex Mono', fontSize:10, letterSpacing:3, color:c.faint, textTransform:'uppercase' }}>Gap Scout · what your stack is missing</span>
+          <span style={{ fontSize:9, color:'#7C5CFF', fontFamily:'IBM Plex Mono', border:'1px solid #7C5CFF44', padding:'2px 7px', borderRadius:3 }}>{gaps.length} gaps</span>
+        </div>
+        <span style={{ color:c.faint, fontSize:12, fontFamily:'IBM Plex Mono' }}>{open?'▲':'▼'}</span>
+      </button>
+      {open && (
+        <div style={{ padding:'2px 22px 18px' }}>
+          {meta && <p style={{ fontSize:13.5, lineHeight:1.65, color:c.sub, fontStyle:'italic', margin:'0 0 16px', maxWidth:'64ch' }}>{meta}</p>}
+          {gaps.map((g,i)=>(
+            <div key={i} style={{ padding:'14px 0', borderTop:`1px solid ${c.line}`, animation:`rise .5s ease ${i*0.05}s both` }}>
+              <div style={{ display:'flex', alignItems:'baseline', gap:9, marginBottom:5, flexWrap:'wrap' }}>
+                <span style={{ fontSize:15, fontFamily:'Spectral', fontWeight:500, color:c.ink }}>{g.capability}</span>
+                <span style={{ fontSize:9, color:PRI[g.priority]||c.faint, fontFamily:'IBM Plex Mono', letterSpacing:1, textTransform:'uppercase' }}>{g.priority}</span>
+                {g.target_system && <span style={{ fontSize:9, color:c.sub, fontFamily:'IBM Plex Mono', border:`1px solid ${c.line}`, padding:'1px 6px', borderRadius:3 }}>{g.target_system}</span>}
+              </div>
+              {g.current_state && <p style={{ fontSize:12.5, color:c.faint, margin:'0 0 4px', lineHeight:1.5 }}><span style={{ fontFamily:'IBM Plex Mono', fontSize:10 }}>gap · </span>{g.current_state}</p>}
+              {g.enhancement && <p style={{ fontSize:13.5, color:c.ink, margin:'0 0 6px', lineHeight:1.55 }}>{g.enhancement}</p>}
+              {g.evidence_repos?.length>0 && (
+                <div style={{ display:'flex', gap:8, flexWrap:'wrap', marginBottom:8 }}>
+                  {g.evidence_repos.map(rid=>(
+                    <a key={rid} href={`https://github.com/${rid}`} target="_blank" rel="noreferrer"
+                      style={{ fontSize:11, fontFamily:'IBM Plex Mono', color:'#7C5CFF', textDecoration:'none', borderBottom:'1px solid #7C5CFF33' }}>{rid}</a>
+                  ))}
+                </div>
+              )}
+              {g.adoption && (
+                <div style={{ display:'flex', flexDirection:'column', gap:6, marginTop:4 }}>
+                  {tools.map(({k,l,col})=> g.adoption[k] && (
+                    <div key={k} onClick={()=>copy(`${i}-${k}`, g.adoption[k])} title="click to copy"
+                      style={{ display:'flex', gap:9, alignItems:'baseline', cursor:'pointer',
+                        background:c.raised, border:`1px solid ${copied===`${i}-${k}`?col:c.line}`, borderRadius:5, padding:'7px 10px', transition:'border-color .2s' }}>
+                      <span style={{ fontSize:9, fontFamily:'IBM Plex Mono', color:col, flexShrink:0, width:74, textTransform:'uppercase', letterSpacing:.5 }}>{l}</span>
+                      <code style={{ fontSize:11.5, fontFamily:'IBM Plex Mono', color:c.sub, lineHeight:1.5, wordBreak:'break-all', flex:1 }}>{g.adoption[k]}</code>
+                      <span style={{ fontSize:9, fontFamily:'IBM Plex Mono', color:copied===`${i}-${k}`?col:c.faint, flexShrink:0 }}>{copied===`${i}-${k}`?'✓':'copy'}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function Card({ repo, c, index, onFeedback }) {
   const [openConns, setOpenConns] = useState(false);
   const [openScores, setOpenScores] = useState(false);
+  const [openInstall, setOpenInstall] = useState(false);
   const [hover, setHover] = useState(false);
   const a = repo.analysis||{};
   const conn = repo.connection||{};
@@ -296,8 +385,15 @@ function Card({ repo, c, index, onFeedback }) {
             color:c.faint, fontSize:10, cursor:'pointer', fontFamily:'IBM Plex Mono', borderBottom:`1px solid ${c.line}` }}>
             {openScores?'hide scores':'scores +'}
           </button>
+          {repo.install && (
+            <button onClick={()=>setOpenInstall(!openInstall)} style={{ background:'none', border:'none',
+              color:openInstall?pd.color:c.faint, fontSize:10, cursor:'pointer', fontFamily:'IBM Plex Mono', borderBottom:`1px solid ${openInstall?pd.color:c.line}` }}>
+              {openInstall?'hide install':'install +'}
+            </button>
+          )}
         </div>
       </div>
+      {openInstall && <InstallBlock install={repo.install} c={c} />}
       {openConns && conn.connections?.slice(1).map((cn,i) => (
         <div key={i} style={{ marginTop:i===0?10:0 }}><WorkflowPill conn={cn} /></div>
       ))}
@@ -390,7 +486,7 @@ export default function App() {
             What's worth<br/><em style={{ fontWeight:400 }}>your attention</em> today.
           </h1>
           <p style={{ fontSize:15, color:c.sub, lineHeight:1.65, maxWidth:'50ch' }}>
-            Five agents range all of GitHub every Monday — Scout, Analyst, Connector, Briefer, Learner —
+            Five agents range all of GitHub every Monday — Scout, Analyst, Connector, Briefer, Gap Scout —
             and return one ranked brief before your standup.
           </p>
         </header>
@@ -448,6 +544,9 @@ export default function App() {
 
             {/* Brief */}
             {view==='brief' && <BriefingPanel briefing={briefing} c={c} repos={repos} onFeedback={handleFeedback} />}
+
+            {/* Gap Scout */}
+            {view==='brief' && <GapsPanel gaps={briefing.gaps} meta={briefing.gap_meta} c={c} visible={true} />}
 
             {/* Feed */}
             {view==='feed' && (
