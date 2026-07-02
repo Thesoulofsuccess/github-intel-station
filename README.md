@@ -318,15 +318,21 @@ Typography-led, calm, adaptive. Not a finance terminal — the Scout covers all 
 
 ## The Story Behind It
 
-I run payments operations at Redpin. I trade NIFTY options. I'm building Reel IQ on the side. I automate everything I can.
+I run Payment Operations at Redpin, spend a good part of my time investing, and outside of work I genuinely enjoy building things through code. If you looked at my [GitHub](https://github.com/?utm_source=chatgpt.com), you’d probably notice one pattern pretty quickly — I have a habit of automating almost everything I can.
 
-Four domains. One brain. Not enough hours in the day.
+I somehow operate across four very different worlds, and like most people trying to do too much, there are never enough hours in the day.
 
-Most AI tools give you more information. I needed something that tells me what to act on. So I built the Intelligence Station — the AI equivalent of a chief of staff who actually knows my business.
+What I kept realizing is that most AI tools are great at giving you *more information*… but information was never really my problem. The bigger challenge was knowing **what actually deserves my attention and what action I should be taking.**
 
-It runs every Monday before I'm awake. By 6:30 AM, my brief is waiting.
+So I started building something for myself — an **Intelligence Station**.
 
-That's the compounding edge.
+The idea is simple: instead of another AI tool feeding me endless data, I wanted something that works more like a trusted chief of staff… something that understands context, filters noise, connects the dots, and tells me what genuinely matters.
+
+It quietly runs in the background every Monday morning before I’m even awake.
+
+By 6:30 AM, I already know what needs my attention.
+
+That small advantage, repeated consistently over time, is where the real edge comes from.
 
 ---
 
