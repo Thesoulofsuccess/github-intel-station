@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-20T04:31:28.743352",
-  "briefing_date": "2026-07-20",
+  "generated_at": "2026-07-27T04:31:19.407407",
+  "briefing_date": "2026-07-27",
   "signal_quality": "weak",
-  "executive_summary": "This week's signal is weak with no repositories provided for analysis. The feed appears empty, suggesting either a data pipeline issue or an unusually quiet week across GitHub trending in your tracked domains. Recommend checking data source connectivity and expanding search parameters for payments infrastructure, market data tooling, and creator economy repos.",
+  "executive_summary": "Pipeline error.",
   "top_picks": [],
   "skip_list": [],
   "gaps": [],
-  "gap_meta": "No notable repos were provided this week, so no capability gaps could be identified. Please supply the weekly repo list to enable gap analysis.",
+  "gap_meta": "No notable repos were provided this week, so no capability gaps could be identified. Please supply the list of GitHub repos to analyze against Vikash's systems.",
   "total_scanned": 0,
   "domains_covered": [
     "payments",
